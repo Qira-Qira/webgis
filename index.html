@@ -4,34 +4,33 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Landing Page JatimMamba</title>
-  <!-- Tailwind CSS via CDN -->
+
   <link rel="stylesheet" href="dist/output.css">
-  <!-- (Opsional) Google Fonts -->
+
   <link rel="preconnect" href="https://fonts.gstatic.com" />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <style>
-    /* (Opsional) Set font default ke Poppins jika mau */
+
     body {
       font-family: 'Poppins', sans-serif;
     }
   </style>
 </head>
 <body class="bg-[#0b1734] text-white">
-   <!-- HERO SECTION -->
+
   <header class="relative w-full h-screen flex flex-col items-center justify-center">
-    <!-- Background -->
+
     <div class="absolute inset-0">
-      <!-- Gambar background gratis dari Unsplash (ganti dengan punyamu) -->
+
       <img 
         src="https://www.google.com/url?sa=i&url=https%3A%2F%2Fgardaberita.com%2Fikn-akan-dihuni-15-juta-orang-ini-time-line-pembangunannya%2F&psig=AOvVaw2B5pWhTARFfMvMHaamsVVS&ust=1740070545322000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqFwoTCJjeuIea0IsDFQAAAAAdAAAAABAE"
         alt="Futuristic Garden"
         class="w-full h-full object-cover"
       />
-      <!-- Overlay -->
+
       <div class="absolute inset-0 bg-black bg-opacity-50"></div>
     </div>
 
-    <!-- MAPID Logo (ganti dengan logo aslimu) -->
     <div class="absolute top-8 right-8">
       <img
         src="https://via.placeholder.com/120x60?text=MAPID"
@@ -40,29 +39,29 @@
       />
     </div>
 
-    <!-- Konten Utama Hero -->
+
     <div class="relative z-10 flex flex-col items-center text-center px-4">
-      <!-- Logo JatimMamba (placeholder) -->
+
       <img 
         src="https://via.placeholder.com/200x100?text=JatimMamba"
         alt="JatimMamba Logo"
         class="w-40 md:w-48 mb-4"
       />
-      <!-- Judul -->
+
       <h1 class="text-3xl md:text-5xl font-bold mb-2">
         <span class="text-[#FFD700]">Jatim</span><span class="text-yellow-300">Mamba</span>
       </h1>
-      <!-- Tagline -->
+
       <p class="text-yellow-300 text-sm md:text-base max-w-xl">
         Temukan Informasi Geospasial yang Anda Butuhkan dalam Sekejap
       </p>
-      <!-- Tombol CTA -->
+
       <button class="mt-6 bg-yellow-400 text-black font-semibold px-6 py-3 rounded-md hover:bg-yellow-300 transition">
         Eksplor Sekarang
       </button>
     </div>
 
-    <!-- Navigasi Bawah -->
+
     <nav class="absolute bottom-8 flex space-x-6 bg-yellow-400 text-black py-2 px-6 rounded-full shadow-lg">
       <a href="#" class="hover:underline">Home</a>
       <a href="#" class="hover:underline">Fitur</a>
@@ -72,13 +71,11 @@
     </nav>
   </header>
 
-  <!-- END HERO -->
 
-  <!-- 3 CARD INFO -->
   <section id="cards-section" class="py-16 bg-[#0B1734]">
     <div class="max-w-6xl mx-auto px-4">
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-        <!-- Card 1 -->
+
         <div class="bg-[#11204B] p-6 rounded-lg shadow-lg hover:shadow-xl transition text-center">
           <img
             src="https://via.placeholder.com/80x80"
@@ -91,7 +88,7 @@
             transparan dan aman.
           </p>
         </div>
-        <!-- Card 2 -->
+
         <div class="bg-[#11204B] p-6 rounded-lg shadow-lg hover:shadow-xl transition text-center">
           <img
             src="https://via.placeholder.com/80x80"
@@ -104,7 +101,7 @@
             diperdagangkan di pasar global.
           </p>
         </div>
-        <!-- Card 3 -->
+ 
         <div class="bg-[#11204B] p-6 rounded-lg shadow-lg hover:shadow-xl transition text-center">
           <img
             src="https://via.placeholder.com/80x80"
@@ -120,12 +117,10 @@
       </div>
     </div>
   </section>
-  <!-- END 3 CARD INFO -->
 
-  <!-- MAP SECTION -->
   <section class="py-16 bg-[#0B1734]">
     <div class="max-w-6xl mx-auto px-4 flex flex-col md:flex-row items-center md:space-x-8">
-      <!-- Gambar Peta -->
+      
       <div class="w-full md:w-1/2 mb-8 md:mb-0">
         <img
           src="https://via.placeholder.com/600x400"
@@ -133,7 +128,7 @@
           class="rounded shadow-lg mx-auto"
         />
       </div>
-      <!-- Teks Info -->
+      
       <div class="w-full md:w-1/2 text-left">
         <h2 class="text-2xl md:text-3xl font-bold mb-4">
           Jaringan Global JatimMamba
@@ -157,13 +152,11 @@
       </div>
     </div>
   </section>
-  <!-- END MAP SECTION -->
 
-  <!-- WHALE / SHARK ICON SECTION -->
   <section class="py-16 bg-[#0B1734]">
     <div class="max-w-6xl mx-auto px-4">
       <div class="flex flex-col md:flex-row items-center justify-between space-y-8 md:space-y-0 md:space-x-8">
-        <!-- Kiri (Teks) -->
+       
         <div class="md:w-1/2">
           <h2 class="text-2xl md:text-3xl font-bold mb-4">Kenapa Whale?</h2>
           <p class="text-gray-300 mb-6 text-sm md:text-base leading-relaxed">
@@ -177,7 +170,7 @@
             <li>Didukung komunitas solid</li>
           </ul>
         </div>
-        <!-- Kanan (Gambar Whale) -->
+      
         <div class="md:w-1/2 flex items-center justify-center">
           <img
             src="https://via.placeholder.com/400x400"
@@ -188,16 +181,14 @@
       </div>
     </div>
   </section>
-  <!-- END WHALE SECTION -->
 
-  <!-- TIM / FOUNDER SECTION -->
   <section class="py-16 bg-[#0B1734]">
     <div class="max-w-6xl mx-auto px-4">
       <h2 class="text-2xl md:text-3xl font-bold mb-8 text-center">
         Tim Kami
       </h2>
       <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-        <!-- Profil 1 -->
+       
         <div class="bg-[#11204B] p-6 rounded-lg flex flex-col md:flex-row items-center">
           <img
             src="https://via.placeholder.com/150x150"
@@ -213,7 +204,7 @@
             </p>
           </div>
         </div>
-        <!-- Profil 2 -->
+     
         <div class="bg-[#11204B] p-6 rounded-lg flex flex-col md:flex-row items-center">
           <img
             src="https://via.placeholder.com/150x150"
@@ -232,13 +223,11 @@
       </div>
     </div>
   </section>
-  <!-- END TIM SECTION -->
 
-  <!-- BRAND SECTION (JatimMamba + Mamba) -->
   <section class="py-16 bg-[#0B1734]">
     <div class="max-w-6xl mx-auto px-4">
       <div class="flex flex-col md:flex-row items-center justify-between space-y-8 md:space-y-0 md:space-x-8">
-        <!-- Logo / Icon -->
+     
         <div class="md:w-1/2 text-center md:text-left">
           <img
             src="https://via.placeholder.com/250x200"
@@ -252,7 +241,7 @@
             perubahan positif di dunia kripto.
           </p>
         </div>
-        <!-- Icon / Additional Info -->
+     
         <div class="md:w-1/2 flex items-center justify-center">
           <img
             src="https://via.placeholder.com/300x300"
@@ -263,9 +252,7 @@
       </div>
     </div>
   </section>
-  <!-- END BRAND SECTION -->
 
-  <!-- MAD ELEPHANT CTA -->
   <section class="py-16 bg-[#11204B]">
     <div class="max-w-4xl mx-auto px-4 text-center">
       <h2 class="text-2xl md:text-3xl font-bold mb-4">Mad Elephant</h2>
@@ -283,14 +270,12 @@
       </a>
     </div>
   </section>
-  <!-- END MAD ELEPHANT CTA -->
 
-  <!-- FOOTER -->
   <footer class="py-6 bg-[#0B1734] text-center border-t border-gray-700">
     <p class="text-gray-400 text-sm">
       &copy; 2025 - JatimMamba. All rights reserved.
     </p>
   </footer>
-  <!-- END FOOTER -->
+
 </body>
 </html>
