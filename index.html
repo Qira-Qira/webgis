@@ -3,10 +3,14 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Landing Page JatimMamba - Redesigned</title>
+  <title>Landing Page JatimMamba - Elegan & Animasi Keren</title>
 
-  <!-- Tailwind CSS -->
+  <!-- Tailwind CSS CDN -->
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <!-- Leaflet CSS untuk WebGIS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
   
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.gstatic.com" />
@@ -16,7 +20,7 @@
     body {
       font-family: 'Poppins', sans-serif;
     }
-    /* Animasi sederhana */
+    /* Animasi dasar untuk fade-in */
     .fade-in {
       opacity: 0;
       transform: translateY(20px);
@@ -26,18 +30,49 @@
       opacity: 1;
       transform: translateY(0);
     }
-    /* Sticky Navbar */
-    .sticky-nav {
-      position: fixed !important;
-      top: 1rem;
-      left: 50%;
-      transform: translateX(-50%);
-      background-color: rgba(11,23,52,0.95);
-      color: white;
-      border-radius: 0.5rem;
-      padding: 0.5rem 1.5rem;
-      box-shadow: 0 4px 6px rgba(0,0,0,0.3);
-      z-index: 50;
+    /* Animasi navbar: slideDown */
+      /* Animasi navbar: slideDown */
+  @keyframes slideDown {
+    from {
+      transform: translateY(-100%);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+  /* Navbar sticky yang telah diperbarui */
+  .sticky-nav {
+    position: fixed !important;
+    top: 0; /* Menempel di bagian atas */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    max-width: 1200px; /* Batasi lebar maksimal untuk tetap terpusat */
+    background-color: rgba(11, 23, 52, 0.95);
+    color: white;
+    padding: 1rem 2rem;
+    /* Hilangkan border-radius supaya menyatu di atas */
+    border-radius: 0;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    z-index: 50;
+    animation: slideDown 0.5s ease forwards;
+  }
+    /* Animasi ikon: efek pulse */
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.1); }
+    }
+    .icon-animate {
+      animation: pulse 3s ease-in-out infinite;
+    }
+    /* Animasi spin saat hover pada ikon */
+    .icon-spin:hover {
+      animation: spin 1s linear infinite;
+    }
+    @keyframes spin {
+      100% { transform: rotate(360deg); }
     }
   </style>
 </head>
@@ -46,27 +81,14 @@
   <!-- HERO SECTION (tetap sama) -->
   <header class="relative w-full h-screen flex flex-col items-center justify-center">
     <div class="absolute inset-0">
-      <!-- Pastikan URL gambar hero adalah URL langsung ke file gambar -->
-      <img 
-        src="https://via.placeholder.com/1920x1080?text=Hero+Image" 
-        alt="Futuristic Garden" 
-        class="w-full h-full object-cover"
-      />
+      <img src="https://via.placeholder.com/1920x1080?text=Hero+Image" alt="Futuristic Garden" class="w-full h-full object-cover" />
       <div class="absolute inset-0 bg-black opacity-50"></div>
     </div>
     <div class="absolute top-8 right-8">
-      <img
-        src="https://via.placeholder.com/120x60?text=MAPID"
-        alt="MAPID Logo"
-        class="w-28 object-contain"
-      />
+      <img src="https://via.placeholder.com/120x60?text=MAPID" alt="MAPID Logo" class="w-28 object-contain" />
     </div>
     <div class="relative z-10 flex flex-col items-center text-center px-4 fade-in">
-      <img 
-        src="https://via.placeholder.com/200x100?text=JatimMamba"
-        alt="JatimMamba Logo"
-        class="w-40 mb-4"
-      />
+      <img src="https://via.placeholder.com/200x100?text=JatimMamba" alt="JatimMamba Logo" class="w-40 mb-4" />
       <h1 class="text-3xl md:text-5xl font-bold mb-2">
         <span class="text-[#FFD700]">Jatim</span><span class="text-yellow-300">Mamba</span>
       </h1>
@@ -89,24 +111,38 @@
   <!-- SECTION: FITUR DAN KEUNGGULAN -->
   <section class="py-20 bg-gray-900">
     <div class="container mx-auto px-6">
-      <h2 class="text-4xl font-bold text-center text-yellow-400 mb-12">Fitur dan Keunggulan</h2>
+      <h2 class="text-4xl font-bold text-center text-yellow-400 mb-12">
+        <i class="fas fa-star text-yellow-400 mr-2 icon-animate"></i>Fitur dan Keunggulan
+      </h2>
       <div class="grid gap-12 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
         <!-- Card 1 -->
-        <div class="bg-[#1e293b] p-8 rounded-lg shadow-lg transform hover:-translate-y-2 transition duration-300">
-          <div class="w-full h-48 bg-gray-700 rounded-md mb-6"></div>
-          <h3 class="text-2xl font-semibold text-yellow-400 mb-4">Pemetaan Area Peta</h3>
+        <div class="bg-[#1e293b] p-8 rounded-lg shadow-lg transform hover:-translate-y-2 transition duration-300 fade-in">
+          <div class="w-full h-48 bg-gray-700 rounded-md mb-6 flex items-center justify-center">
+            <i class="fas fa-map-marked-alt text-6xl text-yellow-400 icon-animate"></i>
+          </div>
+          <h3 class="text-2xl font-semibold text-yellow-400 mb-4">
+            <i class="fas fa-map-marked-alt mr-2 icon-spin"></i>Pemetaan Area Peta
+          </h3>
           <p class="text-gray-300">Peta interaktif dengan fitur navigasi, pencarian lokasi, marker pop-up, serta geolokasi untuk menampilkan posisi Anda.</p>
         </div>
         <!-- Card 2 -->
-        <div class="bg-[#1e293b] p-8 rounded-lg shadow-lg transform hover:-translate-y-2 transition duration-300">
-          <div class="w-full h-48 bg-gray-700 rounded-md mb-6"></div>
-          <h3 class="text-2xl font-semibold text-yellow-400 mb-4">Integrasi Data Spatial</h3>
+        <div class="bg-[#1e293b] p-8 rounded-lg shadow-lg transform hover:-translate-y-2 transition duration-300 fade-in">
+          <div class="w-full h-48 bg-gray-700 rounded-md mb-6 flex items-center justify-center">
+            <i class="fas fa-database text-6xl text-yellow-400 icon-animate"></i>
+          </div>
+          <h3 class="text-2xl font-semibold text-yellow-400 mb-4">
+            <i class="fas fa-database mr-2 icon-spin"></i>Integrasi Data Spatial
+          </h3>
           <p class="text-gray-300">Menggabungkan data geografis dari berbagai sumber (vektor & raster) dalam satu sistem.</p>
         </div>
         <!-- Card 3 -->
-        <div class="bg-[#1e293b] p-8 rounded-lg shadow-lg transform hover:-translate-y-2 transition duration-300">
-          <div class="w-full h-48 bg-gray-700 rounded-md mb-6"></div>
-          <h3 class="text-2xl font-semibold text-yellow-400 mb-4">Perencanaan Berbasis Data</h3>
+        <div class="bg-[#1e293b] p-8 rounded-lg shadow-lg transform hover:-translate-y-2 transition duration-300 fade-in">
+          <div class="w-full h-48 bg-gray-700 rounded-md mb-6 flex items-center justify-center">
+            <i class="fas fa-chart-line text-6xl text-yellow-400 icon-animate"></i>
+          </div>
+          <h3 class="text-2xl font-semibold text-yellow-400 mb-4">
+            <i class="fas fa-chart-line mr-2 icon-spin"></i>Perencanaan Berbasis Data
+          </h3>
           <p class="text-gray-300">Pendekatan berbasis data untuk keputusan lebih akurat dan strategi lebih efektif.</p>
         </div>
       </div>
@@ -117,16 +153,30 @@
   <section class="py-20 bg-gray-800">
     <div class="container mx-auto px-6">
       <div class="flex flex-col lg:flex-row items-center gap-12">
-        <div class="lg:w-1/2">
-          <div class="w-full h-64 bg-gray-600 rounded-md"></div>
+        <div class="lg:w-1/2 fade-in">
+          <div class="w-full h-64 bg-gray-600 rounded-md flex items-center justify-center">
+            <i class="fas fa-microchip text-7xl text-yellow-400 icon-animate"></i>
+          </div>
         </div>
-        <div class="lg:w-1/2">
-          <span class="bg-gray-900 px-4 py-2 border border-yellow-400 text-yellow-400 rounded-full text-xl font-bold inline-block mb-6">Teknologi</span>
+        <div class="lg:w-1/2 fade-in">
+          <span class="bg-gray-900 px-4 py-2 border border-yellow-400 text-yellow-400 rounded-full text-xl font-bold inline-block mb-6">
+            <i class="fas fa-microchip mr-2 icon-spin"></i>Teknologi
+          </span>
           <p class="text-gray-300 text-lg">
-            Di Website Kami, Anda Dapat Menikmati Peta Interaktif yang mudah digunakan. Anda dapat melakukan zoom, menggeser, dan mengklik marker untuk melihat informasi lengkap tentang lokasi. Desain responsif memastikan tampilan optimal di berbagai perangkat.
+            Di Website Kami, Anda dapat menikmati peta interaktif yang mudah digunakan. Anda dapat melakukan zoom, menggeser, dan mengklik marker untuk melihat informasi lengkap tentang lokasi. Desain responsif memastikan tampilan optimal di berbagai perangkat.
           </p>
         </div>
       </div>
+    </div>
+  </section>
+
+  <!-- SECTION: PETA INTERAKTIF WEBGIS -->
+  <section class="py-20 bg-gray-700">
+    <div class="container mx-auto px-6">
+      <h2 class="text-4xl font-bold text-center text-yellow-400 mb-12">
+        <i class="fas fa-map fa-spin mr-2 icon-animate"></i>Peta Interaktif WebGIS
+      </h2>
+      <div id="map" class="w-full h-[500px] rounded-lg shadow-lg"></div>
     </div>
   </section>
 
@@ -134,9 +184,11 @@
   <section class="py-20 bg-gray-900">
     <div class="container mx-auto px-6 space-y-16">
       <!-- Tentang Kami -->
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center fade-in">
         <div>
-          <span class="bg-gray-900 px-4 py-2 border border-yellow-400 text-yellow-400 rounded-full text-xl font-bold inline-block mb-6">Tentang Kami</span>
+          <span class="bg-gray-900 px-4 py-2 border border-yellow-400 text-yellow-400 rounded-full text-xl font-bold inline-block mb-6">
+            <i class="fas fa-users mr-2 icon-spin"></i>Tentang Kami
+          </span>
           <h2 class="text-3xl font-bold text-white mb-4">
             Di JatimMamba, kami percaya bahwa <span class="text-yellow-400">Data Spasial</span> memiliki kekuatan untuk mengungkap wawasan mendalam dan mendorong inovasi.
           </h2>
@@ -144,13 +196,15 @@
             Dengan pendekatan berbasis <span class="text-yellow-400">teknologi dan desain interaktif</span>, kami menggabungkan inovasi dan kolaborasi untuk menghadirkan solusi WEBGIS yang mudah diakses oleh semua kalangan.
           </p>
         </div>
-        <div class="flex justify-center">
+        <div class="flex justify-center fade-in">
           <img src="https://p7.hiclipart.com/preview/973/754/396/geographic-information-system-gis-day-gis-applications-map-geography-cartoon-earth.jpg" alt="JatimMamba" class="w-72 rounded-lg shadow-lg">
         </div>
       </div>
       <!-- Visi dan Misi -->
-      <div class="bg-gray-800 p-10 rounded-lg shadow-lg">
-        <h3 class="text-yellow-400 font-bold text-2xl text-center mb-4">Visi dan Misi</h3>
+      <div class="bg-gray-800 p-10 rounded-lg shadow-lg fade-in">
+        <h3 class="text-yellow-400 font-bold text-2xl text-center mb-4">
+          <i class="fas fa-flag-checkered mr-2 icon-spin"></i>Visi dan Misi
+        </h3>
         <p class="text-white text-lg text-center mb-6">
           Menjadi pelopor solusi WEBGIS yang menginspirasi transformasi digital dan mendukung pengambilan keputusan berbasis data di era modern.
         </p>
@@ -166,20 +220,28 @@
   <!-- SECTION: STUDI KASUS -->
   <section class="py-20 bg-gray-800">
     <div class="container mx-auto px-6">
-      <div class="text-center mb-12">
-        <span class="bg-gray-900 px-4 py-2 border border-yellow-400 text-yellow-400 rounded-full text-xl font-bold">Studi Kasus</span>
+      <div class="text-center mb-12 fade-in">
+        <span class="bg-gray-900 px-4 py-2 border border-yellow-400 text-yellow-400 rounded-full text-xl font-bold">
+          <i class="fas fa-briefcase mr-2 icon-spin"></i>Studi Kasus
+        </span>
       </div>
       <div class="grid gap-12 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
-        <div class="bg-[#1e293b] p-8 rounded-lg shadow-lg">
-          <h3 class="text-yellow-400 font-bold text-xl mb-4">Tantangan</h3>
+        <div class="bg-[#1e293b] p-8 rounded-lg shadow-lg fade-in">
+          <h3 class="text-yellow-400 font-bold text-xl mb-4">
+            <i class="fas fa-exclamation-triangle mr-2 icon-spin"></i>Tantangan
+          </h3>
           <p class="text-gray-300 text-lg">Data yang tersebar menyebabkan pengambilan keputusan menjadi tidak efisien.</p>
         </div>
-        <div class="bg-[#1e293b] p-8 rounded-lg shadow-lg">
-          <h3 class="text-yellow-400 font-bold text-xl mb-4">Solusi</h3>
+        <div class="bg-[#1e293b] p-8 rounded-lg shadow-lg fade-in">
+          <h3 class="text-yellow-400 font-bold text-xl mb-4">
+            <i class="fas fa-lightbulb mr-2 icon-spin"></i>Solusi
+          </h3>
           <p class="text-gray-300 text-lg">WEBGIS yang menyatukan data dengan peta interaktif, dashboard analitik, dan integrasi data real-time.</p>
         </div>
-        <div class="bg-[#1e293b] p-8 rounded-lg shadow-lg">
-          <h3 class="text-yellow-400 font-bold text-xl mb-4">Hasil</h3>
+        <div class="bg-[#1e293b] p-8 rounded-lg shadow-lg fade-in">
+          <h3 class="text-yellow-400 font-bold text-xl mb-4">
+            <i class="fas fa-check-circle mr-2 icon-spin"></i>Hasil
+          </h3>
           <p class="text-gray-300 text-lg">Peningkatan efisiensi kerja hingga 40%, transparansi dan kolaborasi yang lebih baik, serta keputusan strategis yang lebih tepat.</p>
         </div>
       </div>
@@ -189,31 +251,43 @@
   <!-- SECTION: PROFIL KAMI -->
   <section class="py-20 bg-gray-900">
     <div class="container mx-auto px-6">
-      <div class="text-center mb-12">
-        <span class="bg-gray-900 px-4 py-2 border border-yellow-400 text-yellow-400 rounded-full text-xl font-bold">Profil Kami</span>
+      <div class="text-center mb-12 fade-in">
+        <span class="bg-gray-900 px-4 py-2 border border-yellow-400 text-yellow-400 rounded-full text-xl font-bold">
+          <i class="fas fa-user-friends mr-2 icon-spin"></i>Profil Kami
+        </span>
       </div>
       <div class="grid gap-12 grid-cols-1 sm:grid-cols-2 md:grid-cols-3">
-        <div class="bg-[#1e293b] p-8 rounded-lg shadow-lg">
-          <h3 class="text-yellow-400 font-bold text-xl mb-4">Project Leader</h3>
-          <p class="text-gray-300 text-lg">@Stevyuss / Yusril</p>
+        <div class="bg-[#1e293b] p-8 rounded-lg shadow-lg fade-in">
+          <h3 class="text-yellow-400 font-bold text-xl mb-4">
+            <i class="fas fa-user-tie mr-2 icon-spin"></i>Project Leader
+          </h3>
+          <p class="text-gray-300 text-lg">@Stevyuss / Yusril Ast</p>
         </div>
-        <div class="bg-[#1e293b] p-8 rounded-lg shadow-lg">
-          <h3 class="text-yellow-400 font-bold text-xl mb-4">FullStack Dev</h3>
+        <div class="bg-[#1e293b] p-8 rounded-lg shadow-lg fade-in">
+          <h3 class="text-yellow-400 font-bold text-xl mb-4">
+            <i class="fas fa-laptop-code mr-2 icon-spin"></i>FullStack Dev
+          </h3>
           <p class="text-gray-300 text-lg">@Ncho_owen / Haryo Bimo</p>
         </div>
-        <div class="bg-[#1e293b] p-8 rounded-lg shadow-lg">
-          <h3 class="text-yellow-400 font-bold text-xl mb-4">Data Analyst</h3>
-          <p class="text-gray-300 text-lg">@Baphomet99999 / Raihan Fadhliah</p>
+        <div class="bg-[#1e293b] p-8 rounded-lg shadow-lg fade-in">
+          <h3 class="text-yellow-400 font-bold text-xl mb-4">
+            <i class="fas fa-chart-pie mr-2 icon-spin"></i>IT Support
+          </h3>
+          <p class="text-gray-300 text-lg">@Anjay Alok / Alok</p>
         </div>
-        <div class="bg-[#1e293b] p-8 rounded-lg shadow-lg">
-          <h3 class="text-yellow-400 font-bold text-xl mb-4">IT Support</h3>
+        <div class="bg-[#1e293b] p-8 rounded-lg shadow-lg fade-in">
+          <h3 class="text-yellow-400 font-bold text-xl mb-4">
+            <i class="fas fa-headset mr-2 icon-spin"></i>IT Support
+          </h3>
           <p class="text-gray-300 text-lg">@Qiraayyy / Ariq</p>
         </div>
-        <div class="bg-[#1e293b] p-8 rounded-lg shadow-lg">
-          <h3 class="text-yellow-400 font-bold text-xl mb-4">IT Support</h3>
+        <div class="bg-[#1e293b] p-8 rounded-lg shadow-lg fade-in">
+          <h3 class="text-yellow-400 font-bold text-xl mb-4">
+            <i class="fas fa-headset mr-2 icon-spin"></i>IT Support
+          </h3>
           <p class="text-gray-300 text-lg">@Qiraayyy / Ariq</p>
         </div>
-        <div class="flex justify-center items-center">
+        <div class="flex justify-center items-center fade-in">
           <img 
             src="https://via.placeholder.com/200x100?text=JatimMamba" 
             alt="JatimMamba Logo" 
@@ -221,7 +295,7 @@
           />
         </div>
       </div>
-      <div class="mt-12">
+      <div class="mt-12 fade-in">
         <div class="bg-gray-800 p-10 rounded-lg shadow-lg">
           <p class="text-gray-300 text-lg text-center">
             Kami menggabungkan keahlian di pengolahan data spasial, pemrograman web, serta desain antarmuka untuk menciptakan platform WebGIS yang interaktif dan responsif. Dengan komitmen terhadap inovasi dan akurasi data, tim kami bekerja sama dengan MAPID untuk menyediakan solusi yang memudahkan pengguna dalam mengakses, menganalisis, dan memvisualisasikan informasi geografis secara real-time.
@@ -236,6 +310,8 @@
     <p class="text-gray-400 text-sm">&copy; 2025 - JatimMamba. All rights reserved.</p>
   </footer>
 
+  <!-- Leaflet JS untuk WebGIS -->
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
   <!-- Script untuk Animasi dan Sticky Navbar -->
   <script>
     document.addEventListener("DOMContentLoaded", function() {
@@ -251,16 +327,29 @@
       faders.forEach(fader => appearOnScroll.observe(fader));
     });
     
-    window.addEventListener('scroll', function() {
-      const nav = document.getElementById('mainNav');
-      const headerHeight = document.querySelector('header').offsetHeight;
-      if(window.scrollY > headerHeight * 0.8) {
-        nav.classList.add('sticky-nav');
-        nav.classList.remove('absolute', 'bottom-8', 'rounded-full', 'bg-yellow-400', 'text-black');
-      } else {
-        nav.classList.remove('sticky-nav');
-        nav.classList.add('absolute', 'bottom-8', 'rounded-full', 'bg-yellow-400', 'text-black');
-      }
+  window.addEventListener('scroll', function() {
+    const nav = document.getElementById('mainNav');
+    const headerHeight = document.querySelector('header').offsetHeight;
+    if (window.scrollY > headerHeight * 0.8) {
+      nav.classList.add('sticky-nav');
+      // Hapus kelas layout awal agar tidak bentrok
+      nav.classList.remove('absolute', 'bottom-8', 'rounded-full', 'bg-yellow-400', 'text-black');
+    } else {
+      nav.classList.remove('sticky-nav');
+      // Kembalikan kelas awal
+      nav.classList.add('absolute', 'bottom-8', 'rounded-full', 'bg-yellow-400', 'text-black');
+    }
+  });
+    
+    // Inisialisasi Leaflet Map di section "Peta Interaktif WebGIS"
+    document.addEventListener("DOMContentLoaded", function() {
+      var map = L.map('map').setView([-7.797068, 110.370529], 10);
+      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; OpenStreetMap contributors'
+      }).addTo(map);
+      L.marker([-7.797068, 110.370529]).addTo(map)
+        .bindPopup('Lokasi GIS')
+        .openPopup();
     });
   </script>
 </body>
