@@ -47,14 +47,21 @@
       top: 0;
       transform: translateX(-50%);
       width: 100%;
-      max-width: 1350px;
-      background-color: rgba(11, 23, 52, 0.95);
-      color: white;
+      max-width: 1200px;
+      background-color: rgba(250, 204, 21, 0.95);
+      color: black;
       padding: 1rem 2rem;
       border-radius: 0;
       box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-      z-index: 50;
+      z-index: 9999;
       animation: slideDown 0.5s ease forwards;
+      border-radius: 100px;
+      margin-top: 8px;
+    }
+
+    header,nav,a:hover{
+      background-color: rgb(15,23,42);
+      color: white;
     }
     /* Animasi ikon: efek pulse */
     @keyframes pulse {
@@ -134,10 +141,10 @@
       <div class="absolute inset-0 bg-black opacity-50"></div>
     </div>
     <div class="absolute top-8 right-8">
-      <img src="https://via.placeholder.com/120x60?text=MAPID" alt="MAPID Logo" class="w-28 object-contain" />
+      <img src="img/mapid-logo.png" alt="MAPID Logo" class="w-28 object-contain" />
     </div>
     <div class="relative z-10 flex flex-col items-center text-center px-4 fade-in">
-      <img src="https://via.placeholder.com/200x100?text=JatimMamba" alt="JatimMamba Logo" class="w-40 mb-4" />
+      <img src="img/jtm.png" alt="JatimMamba Logo" class="w-40 mb-4" />
       <h1 class="text-3xl md:text-5xl font-bold mb-2">
         <span class="text-[#FFD700]">Jatim</span><span class="text-yellow-300">Mamba</span>
       </h1>
@@ -149,11 +156,11 @@
       </button>
     </div>
     <nav id="mainNav" class="absolute bottom-8 flex space-x-6 bg-yellow-400 text-black py-2 px-6 rounded-full shadow-lg fade-in mx-auto flex justify-center">
-      <a href="#" class="hover:underline">Home</a>
-      <a href="#" class="hover:underline">Fitur</a>
-      <a href="#" class="hover:underline">Peta</a>
-      <a href="#" class="hover:underline">Tentang</a>
-      <a href="#" class="hover:underline">E-mail</a>
+      <a href="#" class="w-20 hover:w-40 rounded text-center">Home</a>
+      <a href="#" class="w-20 hover:w-40 rounded text-center">Fitur</a>
+      <a href="#" class="w-20 hover:w-40 rounded text-center">Peta</a>
+      <a href="#" class="w-20 hover:w-40 rounded text-center">Tentang</a>
+      <a href="#" class="w-20 hover:w-40 rounded text-center">E-mail</a>
     </nav>
   </header>
 
@@ -467,7 +474,7 @@
                   transform hover:-translate-y-1 hover:scale-[1.03] hover:shadow-2xl transition duration-300">
         <div class="flex flex-col items-center">
           <div class="w-28 h-28 rounded-full overflow-hidden mb-4 border-4 border-yellow-400">
-            <img src="https://via.placeholder.com/150?text=Photo" alt="IT Support" class="object-cover w-full h-full">
+            <img src="img/doni.jpg" alt="IT Support" class="object-cover w-full h-full">
           </div>
           <h3 class="text-xl font-bold text-yellow-400 mb-1">IT Support</h3>
           <p class="text-gray-300 text-base">@Qiraayyy / Ariq</p>
@@ -500,7 +507,7 @@
 </section>
 
 
-  <!-- FOOTER: --> -->
+  <!-- FOOTER: -->
 <footer class="bg-blue-900 text-white py-12">
   <div class="container mx-auto px-6">
     <div class="flex flex-col md:flex-row justify-between items-center md:items-start">
