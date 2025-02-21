@@ -6,8 +6,6 @@
   |  \ _  _| | | _ \   \| __/ __|/ _ \| _ \
   | |) | || | |   / |) | _|\__ \ (_) |   /
   |__/ \_,_| | |_|_\___/|__/___/\___/|_|_\
-  
-      WebGIS Keren Buatan Tim JatimMamba-GIS
   </pre>
 
   <h3>Selamat datang di JatimMamba-GIS</h3>
@@ -58,7 +56,7 @@ Liat screenshot di bawah:
 ## Cara Install
 1. **Clone repo** ini:
    ```bash
-   git clone https://github.com/username/jatimmamba-gis.git
+   git clone https://github.com/Stevyussz/jatimmamba-gis.git
    ```
 2. **Masuk ke folder**:
    ```bash
@@ -117,4 +115,3 @@ Proyek ini dilisensikan di bawah [MIT License](LICENSE). Silakan dipake dan dimo
 Let's make geospatial data accessible and fun!
 
 Selamat eksplorasi dan terima kasih udah mampir!
-```
