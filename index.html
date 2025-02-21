@@ -60,8 +60,8 @@
     }
 
     header,nav,a:hover{
-      background-color: rgb(15,23,42);
-      color: white;
+      background-color: #0b1734;
+      color: #fbbf24;
     }
     /* Animasi ikon: efek pulse */
     @keyframes pulse {
@@ -146,7 +146,7 @@
     <div class="relative z-10 flex flex-col items-center text-center px-4 fade-in">
       <img src="img/jtm.png" alt="JatimMamba Logo" class="w-40 mb-4" />
       <h1 class="text-3xl md:text-5xl font-bold mb-2">
-        <span class="text-[#FFD700]">Jatim</span><span class="text-yellow-300">Mamba</span>
+        <span class="text-blue-900">Jatim</span><span class="text-yellow-300">Mamba</span>
       </h1>
       <p class="text-yellow-300 text-sm md:text-base max-w-xl">
         Temukan Informasi Geospasial yang Anda Butuhkan dalam Sekejap
@@ -157,7 +157,7 @@
     </div>
     <nav id="mainNav" class="absolute bottom-8 flex space-x-6 bg-yellow-400 text-black py-2 px-6 rounded-full shadow-lg fade-in mx-auto flex justify-center">
       <a href="#" class="w-20 hover:w-40 rounded text-center">Home</a>
-      <a href="#" class="w-20 hover:w-40 rounded text-center">Fitur</a>
+      <a href="#fitur" class="w-20 hover:w-40 rounded text-center">Fitur</a>
       <a href="#" class="w-20 hover:w-40 rounded text-center">Peta</a>
       <a href="#" class="w-20 hover:w-40 rounded text-center">Tentang</a>
       <a href="#" class="w-20 hover:w-40 rounded text-center">E-mail</a>
@@ -165,7 +165,7 @@
   </header>
 
   <!-- SECTION: FITUR DAN KEUNGGULAN -->
-  <section class="py-20 bg-gray-900">
+  <section id="fitur" class="py-20 bg-gray-900">
     <div class="container mx-auto px-6">
       <h2 class="text-4xl font-bold text-center text-yellow-400 mb-12">
         <i class="fas fa-star text-yellow-400 mr-2 icon-animate"></i>Fitur dan Keunggulan
@@ -420,7 +420,7 @@
                   transform hover:-translate-y-1 hover:scale-[1.03] hover:shadow-2xl transition duration-300">
         <div class="flex flex-col items-center">
           <div class="w-28 h-28 rounded-full overflow-hidden mb-4 border-4 border-yellow-400">
-            <img src="https://via.placeholder.com/150?text=Photo" alt="FullStack Dev" class="object-cover w-full h-full">
+            <img src="img/bimo.png" alt="FullStack Dev" class="object-cover w-full h-full">
           </div>
           <h3 class="text-xl font-bold text-yellow-400 mb-1">FullStack Dev</h3>
           <p class="text-gray-300 text-base">@Ncho_owen / Haryo Bimo</p>
@@ -438,7 +438,7 @@
                   transform hover:-translate-y-1 hover:scale-[1.03] hover:shadow-2xl transition duration-300">
         <div class="flex flex-col items-center">
           <div class="w-28 h-28 rounded-full overflow-hidden mb-4 border-4 border-yellow-400">
-            <img src="https://via.placeholder.com/150?text=Photo" alt="Data Analyst" class="object-cover w-full h-full">
+            <img src="img/mas kei.png" alt="Data Analyst" class="object-cover w-full h-full">
           </div>
           <h3 class="text-xl font-bold text-yellow-400 mb-1">Data Analyst</h3>
           <p class="text-gray-300 text-base">@Baphomet99999 / Raihan</p>
@@ -456,7 +456,7 @@
                   transform hover:-translate-y-1 hover:scale-[1.03] hover:shadow-2xl transition duration-300">
         <div class="flex flex-col items-center">
           <div class="w-28 h-28 rounded-full overflow-hidden mb-4 border-4 border-yellow-400">
-            <img src="https://via.placeholder.com/150?text=Photo" alt="Cyber Security" class="object-cover w-full h-full">
+            <img src="img/DAVID.png" alt="Cyber Security" class="object-cover w-full h-full">
           </div>
           <h3 class="text-xl font-bold text-yellow-400 mb-1">Cyber Security</h3>
           <p class="text-gray-300 text-base">@dapideuy404 / Haidar Dzaky F</p>
@@ -601,6 +601,23 @@
       L.marker([-3.3167, 114.5833]).addTo(map)
         .bindPopup('Kabupaten Panajam, Kalimantan Selatan')
         .openPopup();
+    });
+
+    window.addEventListener("DOMContentLoaded", function(){
+      const scrollLinks = document.querySelectorAll('.scroll-link');
+
+    scrollLinks.forEach(link => {
+      link.addEventListener('click', function(e) {
+        e.preventDefault(); 
+
+        const targetID = this.getAttribute('href').substring(1);
+        const targetSection = document.getElementById(targetID);
+        if (targetSection) {
+
+          targetSection.scrollIntoView({ behavior: 'smooth' });
+        }
+      });
+    }); 
     });
   </script>
 </body>
