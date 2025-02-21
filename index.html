@@ -5,22 +5,22 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>JatimMamba - Home</title>
 
-  <!-- Ini link Tailwind CSS, dipake buat styling cepat -->
+  <!-- Tailwind CSS CDN -->
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-  <!-- Font Awesome buat ikon-ikon keren -->
+  <!-- Font Awesome for icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
-  <!-- Leaflet CSS buat peta interaktif -->
+  <!-- Leaflet CSS Gae WebGIS -->
   <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
-  <!-- Google Fonts, pake font Poppins -->
+  
+  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.gstatic.com" />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
 
   <style>
-    /* Pakai font Poppins */
     body {
       font-family: 'Poppins', sans-serif;
     }
-    /* Animasi fade-in dasar */
+    /* Animasi dasar untuk fade-in */
     .fade-in {
       opacity: 0;
       transform: translateY(20px);
@@ -30,7 +30,7 @@
       opacity: 1;
       transform: translateY(0);
     }
-    /* Keyframes buat navbar slideDown */
+    /* Animasi navbar: slideDown */
     @keyframes slideDown {
       from {
         transform: translateY(-100%);
@@ -41,22 +41,22 @@
         opacity: 1;
       }
     }
-    /* Kelas sticky-nav dipake saat scroll melewati batas */
+    /* Navbar sticky yang telah diperbarui */
     .sticky-nav {
       position: fixed !important;
-      top: 0; /* Menempel di bagian atas */
+      top: 0;
       transform: translateX(-50%);
       width: 100%;
-      max-width: 1350px; /* Batasi lebar maksimal biar tengah */
+      max-width: 1350px;
       background-color: rgba(11, 23, 52, 0.95);
       color: white;
       padding: 1rem 2rem;
-      border-radius: 0; /* Biar nyambung sama atas */
+      border-radius: 0;
       box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
       z-index: 50;
       animation: slideDown 0.5s ease forwards;
     }
-    /* Efek pulse ikon */
+    /* Animasi ikon: efek pulse */
     @keyframes pulse {
       0%, 100% { transform: scale(1); }
       50% { transform: scale(1.1); }
@@ -64,14 +64,14 @@
     .icon-animate {
       animation: pulse 3s ease-in-out infinite;
     }
-    /* Efek spin ikon pas hover */
+    /* Animasi spin saat hover pada ikon */
     .icon-spin:hover {
       animation: spin 1s linear infinite;
     }
     @keyframes spin {
       100% { transform: rotate(360deg); }
     }
-    /* Marker ripple (Leaflet divIcon) */
+    /* Marker dengan efek ripple menggunakan divIcon */
     .pulsing-icon {
       width: 20px;
       height: 20px;
@@ -95,7 +95,6 @@
         box-shadow: 0 0 0 0 rgba(251,191,36,0);
       }
     }
-    /* Buat flip card di Studi Kasus */
     .flip-card {
       perspective: 1000px;
     }
@@ -109,25 +108,34 @@
     .flip-card-back {
       transform: rotateY(180deg);
     }
+    /* Memastikan properti CSS untuk transform 3D di Tailwind */
+    .transform-style-preserve-3d {
+      transform-style: preserve-3d;
+    }
+    .backface-hidden {
+      backface-visibility: hidden;
+    }
+    /* Definisikan rotateY untuk elemen flip-card-back */
+    .rotateY-180 {
+      transform: rotateY(180deg);
+    }
+    /* Efek flip saat hover */
     .group:hover .flip-card-inner {
       transform: rotateY(180deg);
     }
   </style>
 </head>
 <body class="bg-[#0b1734] text-white">
-  
-  <!-- HERO SECTION -->
+
+  <!-- HERO SECTION (tetap sama) -->
   <header class="relative w-full h-screen flex flex-col items-center justify-center">
-    <!-- Background image + overlay, ganti URL gambar sesuai kebutuhan -->
     <div class="absolute inset-0">
       <img src="img/background.png" alt="Futuristic Garden" class="w-full h-full object-cover" />
       <div class="absolute inset-0 bg-black opacity-50"></div>
     </div>
-    <!-- Logo kecil di pojok kanan atas -->
     <div class="absolute top-8 right-8">
       <img src="https://via.placeholder.com/120x60?text=MAPID" alt="MAPID Logo" class="w-28 object-contain" />
     </div>
-    <!-- Konten utama hero: logo, judul, deskripsi, dan tombol -->
     <div class="relative z-10 flex flex-col items-center text-center px-4 fade-in">
       <img src="https://via.placeholder.com/200x100?text=JatimMamba" alt="JatimMamba Logo" class="w-40 mb-4" />
       <h1 class="text-3xl md:text-5xl font-bold mb-2">
@@ -140,28 +148,23 @@
         Eksplor Sekarang
       </button>
     </div>
-<!-- NAVBAR: Mulai di bawah hero, tengah -->
-<nav
-id="mainNav"
-class="absolute bottom-8 flex space-x-6 bg-yellow-400 text-black py-2 px-6
-       rounded-full shadow-lg fade-in mx-auto flex justify-center"
->
-<a href="#" class="hover:underline">Home</a>
-<a href="#" class="hover:underline">Fitur</a>
-<a href="#" class="hover:underline">Peta</a>
-<a href="#" class="hover:underline">Tentang</a>
-<a href="#" class="hover:underline">E-mail</a>
-</nav>>
+    <nav id="mainNav" class="absolute bottom-8 flex space-x-6 bg-yellow-400 text-black py-2 px-6 rounded-full shadow-lg fade-in mx-auto flex justify-center">
+      <a href="#" class="hover:underline">Home</a>
+      <a href="#" class="hover:underline">Fitur</a>
+      <a href="#" class="hover:underline">Peta</a>
+      <a href="#" class="hover:underline">Tentang</a>
+      <a href="#" class="hover:underline">E-mail</a>
+    </nav>
   </header>
 
-  <!-- FITUR DAN KEUNGGULAN SECTION -->
+  <!-- SECTION: FITUR DAN KEUNGGULAN -->
   <section class="py-20 bg-gray-900">
     <div class="container mx-auto px-6">
       <h2 class="text-4xl font-bold text-center text-yellow-400 mb-12">
         <i class="fas fa-star text-yellow-400 mr-2 icon-animate"></i>Fitur dan Keunggulan
       </h2>
       <div class="grid gap-12 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
-        <!-- Card Pemetaan -->
+        <!-- Card 1 -->
         <div class="bg-[#1e293b] p-8 rounded-lg shadow-lg transform hover:-translate-y-2 transition duration-300 fade-in">
           <div class="w-full h-48 bg-gray-700 rounded-md mb-6 flex items-center justify-center">
             <i class="fas fa-map-marked-alt text-6xl text-yellow-400 icon-animate"></i>
@@ -169,9 +172,9 @@ class="absolute bottom-8 flex space-x-6 bg-yellow-400 text-black py-2 px-6
           <h3 class="text-2xl font-semibold text-yellow-400 mb-4">
             <i class="fas fa-map-marked-alt mr-2 icon-spin"></i>Pemetaan Area Peta
           </h3>
-          <p class="text-gray-300">Peta interaktif dengan fitur navigasi, pencarian lokasi, marker pop-up, dan geolokasi.</p>
+          <p class="text-gray-300">Peta interaktif dengan fitur navigasi, pencarian lokasi, marker pop-up, serta geolokasi untuk menampilkan posisi Anda.</p>
         </div>
-        <!-- Card Integrasi Data -->
+        <!-- Card 2 -->
         <div class="bg-[#1e293b] p-8 rounded-lg shadow-lg transform hover:-translate-y-2 transition duration-300 fade-in">
           <div class="w-full h-48 bg-gray-700 rounded-md mb-6 flex items-center justify-center">
             <i class="fas fa-database text-6xl text-yellow-400 icon-animate"></i>
@@ -179,9 +182,9 @@ class="absolute bottom-8 flex space-x-6 bg-yellow-400 text-black py-2 px-6
           <h3 class="text-2xl font-semibold text-yellow-400 mb-4">
             <i class="fas fa-database mr-2 icon-spin"></i>Integrasi Data Spatial
           </h3>
-          <p class="text-gray-300">Menggabungkan data dari berbagai sumber (vektor & raster) jadi satu sistem.</p>
+          <p class="text-gray-300">Menggabungkan data geografis dari berbagai sumber (vektor & raster) dalam satu sistem.</p>
         </div>
-        <!-- Card Perencanaan Data -->
+        <!-- Card 3 -->
         <div class="bg-[#1e293b] p-8 rounded-lg shadow-lg transform hover:-translate-y-2 transition duration-300 fade-in">
           <div class="w-full h-48 bg-gray-700 rounded-md mb-6 flex items-center justify-center">
             <i class="fas fa-chart-line text-6xl text-yellow-400 icon-animate"></i>
@@ -189,13 +192,13 @@ class="absolute bottom-8 flex space-x-6 bg-yellow-400 text-black py-2 px-6
           <h3 class="text-2xl font-semibold text-yellow-400 mb-4">
             <i class="fas fa-chart-line mr-2 icon-spin"></i>Perencanaan Berbasis Data
           </h3>
-          <p class="text-gray-300">Menggunakan data buat ambil keputusan yang lebih tepat dan efektif.</p>
+          <p class="text-gray-300">Pendekatan berbasis data untuk keputusan lebih akurat dan strategi lebih efektif.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- TEKNOLOGI SECTION -->
+  <!-- SECTION: TEKNOLOGI -->
   <section class="py-20 bg-gray-800">
     <div class="container mx-auto px-6">
       <div class="flex flex-col lg:flex-row items-center gap-12">
@@ -209,14 +212,14 @@ class="absolute bottom-8 flex space-x-6 bg-yellow-400 text-black py-2 px-6
             <i class="fas fa-microchip mr-2 icon-spin"></i>Teknologi
           </span>
           <p class="text-gray-300 text-lg">
-            Nikmati peta interaktif yang mudah digunakan, zoom, geser, dan klik marker buat liat info lengkap.
+            Di Website Kami, Anda dapat menikmati peta interaktif yang mudah digunakan. Anda dapat melakukan zoom, menggeser, dan mengklik marker untuk melihat informasi lengkap tentang lokasi. Desain responsif memastikan tampilan optimal di berbagai perangkat.
           </p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- PETA INTERAKTIF WEBGIS SECTION -->
+  <!-- SECTION: PETA INTERAKTIF WEBGIS -->
   <section class="py-20 bg-gradient-to-b from-gray-800 to-gray-900 relative">
     <div class="container mx-auto px-6">
       <div class="text-center mb-12 fade-in">
@@ -224,9 +227,9 @@ class="absolute bottom-8 flex space-x-6 bg-yellow-400 text-black py-2 px-6
         <p class="text-xl text-gray-300">Jelajahi lokasi dengan peta interaktif yang canggih</p>
       </div>
       <div class="relative overflow-hidden rounded-3xl shadow-2xl">
-        <!-- Kontainer peta, jangan lupa atur tinggi -->
+        <!-- Kontainer peta dengan tinggi eksplisit -->
         <div id="map" class="w-full" style="height: 500px;"></div>
-        <!-- Overlay gradient buat efek visual -->
+        <!-- Overlay gradient untuk efek visual -->
         <div class="absolute inset-0 pointer-events-none bg-gradient-to-t from-black via-transparent to-transparent opacity-40"></div>
         <!-- Label lokasi -->
         <div class="absolute top-4 left-4 bg-white/30 backdrop-blur-md text-white px-4 py-2 rounded-full text-sm font-semibold">
@@ -241,7 +244,7 @@ class="absolute bottom-8 flex space-x-6 bg-yellow-400 text-black py-2 px-6
     </div>
   </section>
 
-  <!-- TENTANG KAMI / VISI & MISI SECTION -->
+  <!-- SECTION: TENTANG KAMI / VISI & MISI -->
   <section class="py-20 bg-gray-900">
     <div class="container mx-auto px-6 space-y-16">
       <!-- Tentang Kami -->
@@ -251,22 +254,22 @@ class="absolute bottom-8 flex space-x-6 bg-yellow-400 text-black py-2 px-6
             <i class="fas fa-users mr-2 icon-spin"></i>Tentang Kami
           </span>
           <h2 class="text-3xl font-bold text-white mb-4">
-            Di JatimMamba, kita yakin <span class="text-yellow-400">Data Spasial</span> punya kekuatan buat ungkap insight mendalam dan dorong inovasi.
+            Di JatimMamba, kami percaya bahwa <span class="text-yellow-400">Data Spasial</span> memiliki kekuatan untuk mengungkap wawasan mendalam dan mendorong inovasi.
           </h2>
           <p class="text-gray-300 text-lg">
-            Dengan pendekatan teknologi dan desain interaktif, kita gabungin inovasi dan kolaborasi buat hadirkan solusi WebGIS yang gampang diakses sama semua orang.
+            Dengan pendekatan berbasis <span class="text-yellow-400">teknologi dan desain interaktif</span>, kami menggabungkan inovasi dan kolaborasi untuk menghadirkan solusi WEBGIS yang mudah diakses oleh semua kalangan.
           </p>
         </div>
         <div class="flex justify-center fade-in">
           <img src="https://p7.hiclipart.com/preview/973/754/396/geographic-information-system-gis-day-gis-applications-map-geography-cartoon-earth.jpg" alt="JatimMamba" class="w-72 rounded-lg shadow-lg">
         </div>
       </div>
-      <!-- VISI & MISI SECTION -->
+      <!-- SECTION: VISI & MISI -->
       <section id="visi-misi" class="py-20 bg-gradient-to-br from-gray-800 to-gray-900">
         <div class="container mx-auto px-6">
           <div class="text-center mb-12 fade-in">
             <h2 class="text-4xl font-extrabold text-yellow-400 mb-2">Visi & Misi</h2>
-            <p class="text-xl text-gray-300">Misi dan visi kita buat pimpin transformasi digital lewat inovasi WebGIS</p>
+            <p class="text-xl text-gray-300">Misi dan visi kami untuk memimpin transformasi digital melalui inovasi WebGIS</p>
           </div>
           <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
             <!-- Card Visi -->
@@ -274,10 +277,10 @@ class="absolute bottom-8 flex space-x-6 bg-yellow-400 text-black py-2 px-6
               <div class="relative z-10">
                 <h3 class="text-3xl font-bold text-yellow-300 mb-4">Visi Kami</h3>
                 <p class="text-lg text-gray-100 leading-relaxed">
-                  Menjadi pelopor solusi WebGIS yang menginspirasi transformasi digital dan dukung pengambilan keputusan berbasis data tanpa batas.
+                  Menjadi pelopor solusi WEBGIS yang menginspirasi transformasi digital dan mendukung pengambilan keputusan berbasis data dengan inovasi tanpa batas.
                 </p>
               </div>
-              <!-- Overlay neon pas hover -->
+              <!-- Overlay animasi neon -->
               <div class="absolute inset-0 rounded-3xl border-2 border-transparent group-hover:border-yellow-400 transition-all duration-500"></div>
             </div>
             <!-- Card Misi -->
@@ -285,13 +288,168 @@ class="absolute bottom-8 flex space-x-6 bg-yellow-400 text-black py-2 px-6
               <div class="relative z-10">
                 <h3 class="text-3xl font-bold text-blue-300 mb-4">Misi Kami</h3>
                 <ul class="text-lg text-gray-100 list-disc list-inside space-y-2 leading-relaxed">
-                  <li><span class="font-bold">Inovasi Berkelanjutan:</span> Kembangkan teknologi interaktif yang selalu terdepan.</li>
-                  <li><span class="font-bold">Aksesibilitas Data:</span> Sajikan info spasial dengan antarmuka yang gampang dipahami.</li>
-                  <li><span class="font-bold">Kolaborasi Global:</span> Bangun jaringan kemitraan buat solusi terintegrasi.</li>
+                  <li><span class="font-bold">Inovasi Berkelanjutan:</span> Mengembangkan teknologi interaktif yang selalu terdepan dalam era digital.</li>
+                  <li><span class="font-bold">Aksesibilitas Data:</span> Menyajikan informasi spasial secara intuitif dengan antarmuka yang mudah dipahami.</li>
+                  <li><span class="font-bold">Kolaborasi Global:</span> Membangun jaringan kemitraan untuk menghadirkan solusi yang terintegrasi.</li>
                 </ul>
               </div>
-              <!-- Overlay neon pas hover -->
+              <!-- Overlay animasi neon -->
               <div class="absolute inset-0 rounded-3xl border-2 border-transparent group-hover:border-blue-400 transition-all duration-500"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- SECTION: STUDI KASUS -->
+      <section class="py-20 bg-gradient-to-b from-gray-800 to-gray-900">
+        <div class="container mx-auto px-6">
+          <div class="text-center mb-12 fade-in">
+            <span class="inline-block bg-gray-900 px-4 py-2 border border-yellow-400 text-yellow-400 rounded-full text-2xl font-bold">
+              <i class="fas fa-briefcase mr-2 icon-spin"></i>Studi Kasus
+            </span>
+          </div>
+          <div class="grid gap-16 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+            <!-- Flip Card Template -->
+            <!-- Card 1: Tantangan -->
+            <div class="group relative flip-card bg-transparent h-64 shadow-2xl rounded-xl overflow-hidden fade-in">
+              <div class="flip-card-inner relative w-full h-full transition-transform duration-700 transform-style-preserve-3d">
+                <!-- Front Side -->
+                <div class="flip-card-front absolute w-full h-full bg-[#1e293b] p-8 rounded-xl flex flex-col justify-center items-center">
+                  <h3 class="text-yellow-400 font-bold text-2xl mb-4 flex items-center">
+                    <i class="fas fa-exclamation-triangle mr-3 text-3xl"></i>
+                    Tantangan
+                  </h3>
+                  <p class="text-gray-300 text-lg text-center">Data yang tersebar menyebabkan pengambilan keputusan menjadi tidak efisien.</p>
+                </div>
+                <!-- Back Side -->
+                <div class="flip-card-back absolute w-full h-full bg-gray-900 p-8 rounded-xl flex flex-col justify-center items-center transform rotateY-180 backface-hidden">
+                  <p class="text-yellow-400 text-lg text-center">Masalah integrasi data yang tidak terpusat menghambat alur kerja, membuat analisis dan keputusan menjadi lambat.</p>
+                </div>
+              </div>
+            </div>
+            <!-- Card 2: Solusi -->
+            <div class="group relative flip-card bg-transparent h-64 shadow-2xl rounded-xl overflow-hidden fade-in">
+              <div class="flip-card-inner relative w-full h-full transition-transform duration-700 transform-style-preserve-3d">
+                <!-- Front Side -->
+                <div class="flip-card-front absolute w-full h-full bg-[#1e293b] p-8 rounded-xl flex flex-col justify-center items-center">
+                  <h3 class="text-yellow-400 font-bold text-2xl mb-4 flex items-center">
+                    <i class="fas fa-lightbulb mr-3 text-3xl"></i>
+                    Solusi
+                  </h3>
+                  <p class="text-gray-300 text-lg text-center">WEBGIS yang menyatukan data dengan peta interaktif, dashboard analitik, dan integrasi data real-time.</p>
+                </div>
+                <!-- Back Side -->
+                <div class="flip-card-back absolute w-full h-full bg-gray-900 p-8 rounded-xl flex flex-col justify-center items-center transform rotateY-180 backface-hidden">
+                  <p class="text-yellow-400 text-lg text-center">Menggabungkan data dari berbagai sumber ke dalam satu platform memungkinkan visualisasi dan analisis secara menyeluruh.</p>
+                </div>
+              </div>
+            </div>
+            <!-- Card 3: Hasil -->
+            <div class="group relative flip-card bg-transparent h-64 shadow-2xl rounded-xl overflow-hidden fade-in">
+              <div class="flip-card-inner relative w-full h-full transition-transform duration-700 transform-style-preserve-3d">
+                <!-- Front Side -->
+                <div class="flip-card-front absolute w-full h-full bg-[#1e293b] p-8 rounded-xl flex flex-col justify-center items-center">
+                  <h3 class="text-yellow-400 font-bold text-2xl mb-4 flex items-center">
+                    <i class="fas fa-check-circle mr-3 text-3xl"></i>
+                    Hasil
+                  </h3>
+                  <p class="text-gray-300 text-lg text-center">Peningkatan efisiensi kerja hingga 40%, transparansi dan kolaborasi yang lebih baik.</p>
+                </div>
+                <!-- Back Side -->
+                <div class="flip-card-back absolute w-full h-full bg-gray-900 p-8 rounded-xl flex flex-col justify-center items-center transform rotateY-180 backface-hidden">
+                  <p class="text-yellow-400 text-lg text-center">Optimalisasi sistem informasi membantu tim membuat keputusan strategis dengan cepat dan akurat.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- SECTION: PROFIL KAMI -->
+      <section id="profil-kami" class="py-20 bg-gradient-to-b from-gray-900 to-gray-800">
+        <div class="container mx-auto px-6">
+          <div class="text-center mb-12 fade-in">
+            <span class="bg-gray-900 px-4 py-2 border border-yellow-400 text-yellow-400 rounded-full text-xl font-bold">
+              <i class="fas fa-user-friends mr-2 icon-spin"></i>Profil Kami
+            </span>
+          </div>
+          <div class="grid gap-16 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+            <!-- Card 1: Project Leader -->
+            <div class="group relative bg-[#1e293b] p-8 rounded-lg shadow-2xl overflow-hidden transition-transform duration-300 hover:-translate-y-2 fade-in">
+              <!-- Profil dasar -->
+              <div class="flex flex-col items-center">
+                <div class="w-24 h-24 rounded-full overflow-hidden mb-4">
+                  <img src="img/yusril.png" alt="Project Leader" class="object-cover w-full h-full">
+                </div>
+                <h3 class="text-2xl font-bold text-yellow-400 mb-1">Project Leader</h3>
+                <p class="text-gray-300 text-lg">@Stevyuss / Yusril Ast</p>
+              </div>
+              <!-- Overlay deskripsi -->
+              <div class="absolute bottom-0 left-0 right-0 h-20 flex items-center justify-center bg-gradient-to-t from-black via-transparent to-transparent opacity-0 transition-all duration-300 group-hover:opacity-100">
+                <p class="text-yellow-400 text-sm text-center px-2">Pengarah utama dalam strategi dan pengembangan tim.</p>
+              </div>
+            </div>
+            <!-- Card 2: FullStack Dev -->
+            <div class="group relative bg-[#1e293b] p-8 rounded-lg shadow-2xl overflow-hidden transition-transform duration-300 hover:-translate-y-2 fade-in">
+              <div class="flex flex-col items-center">
+                <div class="w-24 h-24 rounded-full overflow-hidden mb-4">
+                  <img src="https://via.placeholder.com/150?text=Photo" alt="FullStack Dev" class="object-cover w-full h-full">
+                </div>
+                <h3 class="text-2xl font-bold text-yellow-400 mb-1">FullStack Dev</h3>
+                <p class="text-gray-300 text-lg">@Ncho_owen / Haryo Bimo</p>
+              </div>
+              <div class="absolute bottom-0 left-0 right-0 h-20 flex items-center justify-center bg-gradient-to-t from-black via-transparent to-transparent opacity-0 transition-all duration-300 group-hover:opacity-100">
+                <p class="text-yellow-400 text-sm text-center px-2">Ahli dalam pengembangan front-end dan back-end.</p>
+              </div>
+            </div>
+            <!-- Card 3: Data Analyst #1 -->
+            <div class="group relative bg-[#1e293b] p-8 rounded-lg shadow-2xl overflow-hidden transition-transform duration-300 hover:-translate-y-2 fade-in">
+              <div class="flex flex-col items-center">
+                <div class="w-24 h-24 rounded-full overflow-hidden mb-4">
+                  <img src="https://via.placeholder.com/150?text=Photo" alt="Data Analyst" class="object-cover w-full h-full">
+                </div>
+                <h3 class="text-2xl font-bold text-yellow-400 mb-1">Data Analyst</h3>
+                <p class="text-gray-300 text-lg">@Baphomet99999 / Raihan</p>
+              </div>
+              <div class="absolute bottom-0 left-0 right-0 h-20 flex items-center justify-center bg-gradient-to-t from-black via-transparent to-transparent opacity-0 transition-all duration-300 group-hover:opacity-100">
+                <p class="text-yellow-400 text-sm text-center px-2">Menggali insight dari data untuk pengambilan keputusan tepat.</p>
+              </div>
+            </div>
+            <!-- Card 4: Cyber Security #1 -->
+            <div class="group relative bg-[#1e293b] p-8 rounded-lg shadow-2xl overflow-hidden transition-transform duration-300 hover:-translate-y-2 fade-in">
+              <div class="flex flex-col items-center">
+                <div class="w-24 h-24 rounded-full overflow-hidden mb-4">
+                  <img src="https://via.placeholder.com/150?text=Photo" alt="Cyber Security" class="object-cover w-full h-full">
+                </div>
+                <h3 class="text-2xl font-bold text-yellow-400 mb-1">Cyber Security</h3>
+                <p class="text-gray-300 text-lg">@dapideuy404 / Haidar Dzaky F</p>
+              </div>
+              <div class="absolute bottom-0 left-0 right-0 h-20 flex items-center justify-center bg-gradient-to-t from-black via-transparent to-transparent opacity-0 transition-all duration-300 group-hover:opacity-100">
+                <p class="text-yellow-400 text-sm text-center px-2">Melindungi sistem dari ancaman siber.</p>
+              </div>
+            </div>
+            <!-- Card 5: IT Support -->
+            <div class="group relative bg-[#1e293b] p-8 rounded-lg shadow-2xl overflow-hidden transition-transform duration-300 hover:-translate-y-2 fade-in">
+              <div class="flex flex-col items-center">
+                <div class="w-24 h-24 rounded-full overflow-hidden mb-4">
+                  <img src="https://via.placeholder.com/150?text=Photo" alt="IT Support" class="object-cover w-full h-full">
+                </div>
+                <h3 class="text-2xl font-bold text-yellow-400 mb-1">IT Support</h3>
+                <p class="text-gray-300 text-lg">@Qiraayyy / Ariq</p>
+              </div>
+              <div class="absolute bottom-0 left-0 right-0 h-20 flex items-center justify-center bg-gradient-to-t from-black via-transparent to-transparent opacity-0 transition-all duration-300 group-hover:opacity-100">
+                <p class="text-yellow-400 text-sm text-center px-2">Menyediakan dukungan teknis dan pemeliharaan sistem.</p>
+              </div>
+            </div>
+            <!-- Card 6: Logo / Tambahan -->
+            <div class="flex justify-center items-center fade-in">
+              <img src="https://via.placeholder.com/200x100?text=JatimMamba" alt="JatimMamba Logo" class="w-40">
+            </div>
+          </div>
+          <!-- Keterangan tambahan -->
+          <div class="mt-12 fade-in">
+            <div class="bg-gray-800 p-10 rounded-lg shadow-lg">
+              <p class="text-gray-300 text-lg text-center">
+                Kami menggabungkan keahlian di pengolahan data spasial, pemrograman web, serta desain antarmuka untuk menciptakan platform WebGIS yang interaktif dan responsif. Dengan komitmen terhadap inovasi dan akurasi data, tim kami bekerja sama dengan MAPID untuk menyediakan solusi yang memudahkan pengguna dalam mengakses, menganalisis, dan memvisualisasikan informasi geografis secara real-time.
+              </p>
             </div>
           </div>
         </div>
@@ -299,170 +457,60 @@ class="absolute bottom-8 flex space-x-6 bg-yellow-400 text-black py-2 px-6
     </div>
   </section>
 
-  <!-- STUDI KASUS SECTION -->
-  <section class="py-20 bg-gradient-to-b from-gray-800 to-gray-900">
-    <div class="container mx-auto px-6">
-      <div class="text-center mb-12 fade-in">
-        <span class="inline-block bg-gray-900 px-4 py-2 border border-yellow-400 text-yellow-400 rounded-full text-2xl font-bold">
-          <i class="fas fa-briefcase mr-2 icon-spin"></i>Studi Kasus
-        </span>
+  <!-- FOOTER: Footer Keren dan Profesional -->
+ <!-- FOOTER: Footer Keren dan Profesional Versi Dark Blue -->
+<footer class="bg-blue-900 text-white py-12">
+  <div class="container mx-auto px-6">
+    <div class="flex flex-col md:flex-row justify-between items-center md:items-start">
+      <div class="mb-8 md:mb-0 text-center md:text-left">
+        <img src="https://via.placeholder.com/150x50?text=JatimMamba" alt="JatimMamba Logo" class="w-40 mx-auto md:mx-0">
+        <p class="mt-4 text-gray-300 max-w-sm">
+          JatimMamba adalah platform WEBGIS profesional yang menggabungkan data spasial dengan teknologi terkini untuk mendukung pengambilan keputusan yang cerdas.
+        </p>
       </div>
-      <div class="grid gap-16 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
-        <!-- Flip Card: Tantangan -->
-        <div class="group relative flip-card bg-transparent h-64 shadow-2xl rounded-xl overflow-hidden fade-in">
-          <div class="flip-card-inner relative w-full h-full transition-transform duration-700 transform-style-preserve-3d">
-            <!-- Front Side -->
-            <div class="flip-card-front absolute w-full h-full bg-[#1e293b] p-8 rounded-xl flex flex-col justify-center items-center">
-              <h3 class="text-yellow-400 font-bold text-2xl mb-4 flex items-center">
-                <i class="fas fa-exclamation-triangle mr-3 text-3xl"></i>
-                Tantangan
-              </h3>
-              <p class="text-gray-300 text-lg text-center">Data yang tersebar bikin keputusan jadi gak efisien.</p>
-            </div>
-            <!-- Back Side -->
-            <div class="flip-card-back absolute w-full h-full bg-gray-900 p-8 rounded-xl flex flex-col justify-center items-center transform rotateY-180 backface-hidden">
-              <p class="text-yellow-400 text-lg text-center">Data yang gak terpusat bikin analisis jadi lambat dan alur kerja kacau.</p>
-            </div>
+      <div class="flex flex-col sm:flex-row gap-8">
+        <div>
+          <h3 class="text-xl font-bold mb-4">Navigasi</h3>
+          <ul>
+            <li class="mb-2"><a href="#" class="hover:text-yellow-400 transition">Home</a></li>
+            <li class="mb-2"><a href="#" class="hover:text-yellow-400 transition">Fitur</a></li>
+            <li class="mb-2"><a href="#" class="hover:text-yellow-400 transition">Peta</a></li>
+            <li class="mb-2"><a href="#" class="hover:text-yellow-400 transition">Tentang</a></li>
+            <li class="mb-2"><a href="#" class="hover:text-yellow-400 transition">Kontak</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="text-xl font-bold mb-4">Ikuti Kami</h3>
+          <div class="flex space-x-4 text-2xl">
+            <a href="#" class="text-gray-300 hover:text-yellow-400 transition"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="text-gray-300 hover:text-yellow-400 transition"><i class="fab fa-twitter"></i></a>
+            <a href="#" class="text-gray-300 hover:text-yellow-400 transition"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="text-gray-300 hover:text-yellow-400 transition"><i class="fab fa-linkedin-in"></i></a>
           </div>
         </div>
-        <!-- Flip Card: Solusi -->
-        <div class="group relative flip-card bg-transparent h-64 shadow-2xl rounded-xl overflow-hidden fade-in">
-          <div class="flip-card-inner relative w-full h-full transition-transform duration-700 transform-style-preserve-3d">
-            <!-- Front Side -->
-            <div class="flip-card-front absolute w-full h-full bg-[#1e293b] p-8 rounded-xl flex flex-col justify-center items-center">
-              <h3 class="text-yellow-400 font-bold text-2xl mb-4 flex items-center">
-                <i class="fas fa-lightbulb mr-3 text-3xl"></i>
-                Solusi
-              </h3>
-              <p class="text-gray-300 text-lg text-center">WEBGIS yang nyatuin data, peta interaktif, dan dashboard real-time.</p>
-            </div>
-            <!-- Back Side -->
-            <div class="flip-card-back absolute w-full h-full bg-gray-900 p-8 rounded-xl flex flex-col justify-center items-center transform rotateY-180 backface-hidden">
-              <p class="text-yellow-400 text-lg text-center">Gabungin semua data jadi satu platform buat visualisasi dan analisis secara menyeluruh.</p>
-            </div>
-          </div>
-        </div>
-        <!-- Flip Card: Hasil -->
-        <div class="group relative flip-card bg-transparent h-64 shadow-2xl rounded-xl overflow-hidden fade-in">
-          <div class="flip-card-inner relative w-full h-full transition-transform duration-700 transform-style-preserve-3d">
-            <!-- Front Side -->
-            <div class="flip-card-front absolute w-full h-full bg-[#1e293b] p-8 rounded-xl flex flex-col justify-center items-center">
-              <h3 class="text-yellow-400 font-bold text-2xl mb-4 flex items-center">
-                <i class="fas fa-check-circle mr-3 text-3xl"></i>
-                Hasil
-              </h3>
-              <p class="text-gray-300 text-lg text-center">Efisiensi naik 40%, kolaborasi makin solid.</p>
-            </div>
-            <!-- Back Side -->
-            <div class="flip-card-back absolute w-full h-full bg-gray-900 p-8 rounded-xl flex flex-col justify-center items-center transform rotateY-180 backface-hidden">
-              <p class="text-yellow-400 text-lg text-center">Sistem yang optimal bikin tim bisa ambil keputusan dengan cepat dan tepat.</p>
-            </div>
-          </div>
+        <div>
+          <h3 class="text-xl font-bold mb-4">Newsletter</h3>
+          <p class="text-gray-300 mb-4">Dapatkan update terbaru dari kami</p>
+          <form class="flex">
+            <input type="email" placeholder="Email Anda" class="px-4 py-2 rounded-l-md focus:outline-none text-black" />
+            <button type="submit" class="bg-yellow-400 text-black px-4 py-2 rounded-r-md hover:bg-yellow-300 transition">
+              Subscribe
+            </button>
+          </form>
         </div>
       </div>
     </div>
-  </section>
-
-  <!-- PROFIL KAMI SECTION -->
-  <section id="profil-kami" class="py-20 bg-gradient-to-b from-gray-900 to-gray-800">
-    <div class="container mx-auto px-6">
-      <div class="text-center mb-12 fade-in">
-        <span class="bg-gray-900 px-4 py-2 border border-yellow-400 text-yellow-400 rounded-full text-xl font-bold">
-          <i class="fas fa-user-friends mr-2 icon-spin"></i>Profil Kami
-        </span>
-      </div>
-      <div class="grid gap-16 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-        <!-- Card: Project Leader -->
-        <div class="group relative bg-[#1e293b] p-8 rounded-lg shadow-2xl overflow-hidden transition-transform duration-300 hover:-translate-y-2 fade-in">
-          <div class="flex flex-col items-center">
-            <div class="w-24 h-24 rounded-full overflow-hidden mb-4">
-              <img src="img/yusril.png" alt="Project Leader" class="object-cover w-full h-full">
-            </div>
-            <h3 class="text-2xl font-bold text-yellow-400 mb-1">Project Leader</h3>
-            <p class="text-gray-300 text-lg">@Stevyuss / Yusril Ast</p>
-          </div>
-          <div class="absolute bottom-0 left-0 right-0 h-20 flex items-center justify-center bg-gradient-to-t from-black via-transparent to-transparent opacity-0 transition-all duration-300 group-hover:opacity-100">
-            <p class="text-yellow-400 text-sm text-center px-2">Pengarah utama dalam strategi dan pengembangan tim.</p>
-          </div>
-        </div>
-        <!-- Card: FullStack Dev -->
-        <div class="group relative bg-[#1e293b] p-8 rounded-lg shadow-2xl overflow-hidden transition-transform duration-300 hover:-translate-y-2 fade-in">
-          <div class="flex flex-col items-center">
-            <div class="w-24 h-24 rounded-full overflow-hidden mb-4">
-              <img src="https://via.placeholder.com/150?text=Photo" alt="FullStack Dev" class="object-cover w-full h-full">
-            </div>
-            <h3 class="text-2xl font-bold text-yellow-400 mb-1">FullStack Dev</h3>
-            <p class="text-gray-300 text-lg">@Ncho_owen / Haryo Bimo</p>
-          </div>
-          <div class="absolute bottom-0 left-0 right-0 h-20 flex items-center justify-center bg-gradient-to-t from-black via-transparent to-transparent opacity-0 transition-all duration-300 group-hover:opacity-100">
-            <p class="text-yellow-400 text-sm text-center px-2">Ahli dalam pengembangan front-end dan back-end.</p>
-          </div>
-        </div>
-        <!-- Card: Data Analyst #1 -->
-        <div class="group relative bg-[#1e293b] p-8 rounded-lg shadow-2xl overflow-hidden transition-transform duration-300 hover:-translate-y-2 fade-in">
-          <div class="flex flex-col items-center">
-            <div class="w-24 h-24 rounded-full overflow-hidden mb-4">
-              <img src="https://via.placeholder.com/150?text=Photo" alt="Data Analyst" class="object-cover w-full h-full">
-            </div>
-            <h3 class="text-2xl font-bold text-yellow-400 mb-1">Data Analyst</h3>
-            <p class="text-gray-300 text-lg">@Baphomet99999 / Raihan</p>
-          </div>
-          <div class="absolute bottom-0 left-0 right-0 h-20 flex items-center justify-center bg-gradient-to-t from-black via-transparent to-transparent opacity-0 transition-all duration-300 group-hover:opacity-100">
-            <p class="text-yellow-400 text-sm text-center px-2">Menggali insight dari data untuk pengambilan keputusan tepat.</p>
-          </div>
-        </div>
-        <!-- Card: Cyber Security -->
-        <div class="group relative bg-[#1e293b] p-8 rounded-lg shadow-2xl overflow-hidden transition-transform duration-300 hover:-translate-y-2 fade-in">
-          <div class="flex flex-col items-center">
-            <div class="w-24 h-24 rounded-full overflow-hidden mb-4">
-              <img src="https://via.placeholder.com/150?text=Photo" alt="Cyber Security" class="object-cover w-full h-full">
-            </div>
-            <h3 class="text-2xl font-bold text-yellow-400 mb-1">Cyber Security</h3>
-            <p class="text-gray-300 text-lg">@dapideuy404 / Haidar Dzaky F</p>
-          </div>
-          <div class="absolute bottom-0 left-0 right-0 h-20 flex items-center justify-center bg-gradient-to-t from-black via-transparent to-transparent opacity-0 transition-all duration-300 group-hover:opacity-100">
-            <p class="text-yellow-400 text-sm text-center px-2">Melindungi sistem dari ancaman siber.</p>
-          </div>
-        </div>
-        <!-- Card: IT Support -->
-        <div class="group relative bg-[#1e293b] p-8 rounded-lg shadow-2xl overflow-hidden transition-transform duration-300 hover:-translate-y-2 fade-in">
-          <div class="flex flex-col items-center">
-            <div class="w-24 h-24 rounded-full overflow-hidden mb-4">
-              <img src="https://via.placeholder.com/150?text=Photo" alt="IT Support" class="object-cover w-full h-full">
-            </div>
-            <h3 class="text-2xl font-bold text-yellow-400 mb-1">IT Support</h3>
-            <p class="text-gray-300 text-lg">@Qiraayyy / Ariq</p>
-          </div>
-          <div class="absolute bottom-0 left-0 right-0 h-20 flex items-center justify-center bg-gradient-to-t from-black via-transparent to-transparent opacity-0 transition-all duration-300 group-hover:opacity-100">
-            <p class="text-yellow-400 text-sm text-center px-2">Menyediakan dukungan teknis dan pemeliharaan sistem.</p>
-          </div>
-        </div>
-        <!-- Card: Logo tambahan -->
-        <div class="flex justify-center items-center fade-in">
-          <img src="https://via.placeholder.com/200x100?text=JatimMamba" alt="JatimMamba Logo" class="w-40">
-        </div>
-      </div>
-      <!-- Keterangan tambahan di bawah profil -->
-      <div class="mt-12 fade-in">
-        <div class="bg-gray-800 p-10 rounded-lg shadow-lg">
-          <p class="text-gray-300 text-lg text-center">
-            Kami gabungin keahlian di data spasial, web programming, dan desain buat ciptain platform WebGIS interaktif dan responsif. Dengan komitmen tinggi, tim kita kerjasama bareng MAPID untuk solusi yang memudahkan akses dan analisis data.
-          </p>
-        </div>
-      </div>
+    <div class="border-t border-blue-800 mt-8 pt-4">
+      <p class="text-center text-gray-400 text-sm">&copy; 2025 JatimMamba. All rights reserved.</p>
     </div>
-  </section>
+  </div>
+</footer>
 
-  <!-- FOOTER -->
-  <footer class="py-8 bg-gray-800 text-center border-t border-gray-700">
-    <p class="text-gray-400 text-sm">&copy; 2025 - JatimMamba. All rights reserved.</p>
-  </footer>
-
-  <!-- Sertakan Leaflet JS buat peta -->
+  
+  <!-- Leaflet JS untuk WebGIS -->
   <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
-  <!-- Script Animasi & Navbar Sticky -->
+  <!-- Script untuk Animasi dan Sticky Navbar -->
   <script>
-    // Fade-in scroll
     document.addEventListener("DOMContentLoaded", function() {
       const faders = document.querySelectorAll('.fade-in');
       const appearOptions = { threshold: 0.2 };
@@ -476,29 +524,31 @@ class="absolute bottom-8 flex space-x-6 bg-yellow-400 text-black py-2 px-6
       faders.forEach(fader => appearOnScroll.observe(fader));
     });
     
-    // Sticky Navbar logic
     window.addEventListener('scroll', function() {
       const nav = document.getElementById('mainNav');
       const headerHeight = document.querySelector('header').offsetHeight;
       if (window.scrollY > headerHeight * 0.8) {
         nav.classList.add('sticky-nav');
-        // Buang style awal
+        // Hapus kelas layout awal agar tidak bentrok
         nav.classList.remove('absolute', 'bottom-8', 'rounded-full', 'bg-yellow-400', 'text-black');
       } else {
         nav.classList.remove('sticky-nav');
-        // Balikin style awal
+        // Kembalikan kelas awal
         nav.classList.add('absolute', 'bottom-8', 'rounded-full', 'bg-yellow-400', 'text-black');
       }
     });
     
-    // Inisialisasi peta interaktif pake Leaflet
+    // Inisialisasi Leaflet Map di section "Peta Interaktif WebGIS"
     document.addEventListener("DOMContentLoaded", function() {
-      // Atur peta ke koordinat Kabupaten Panajam (aproksimasi)
+      // Atur tampilan awal ke Kabupaten Panajam, Kalimantan Selatan (aproksimasi Banjarmasin)
       var map = L.map('map').setView([-3.3167, 114.5833], 10);
+      
+      // Tambahkan layer peta dari OpenStreetMap
       L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
         attribution: '&copy; OpenStreetMap contributors'
       }).addTo(map);
-      // Tambahin marker dengan popup
+      
+      // Tambahkan marker dan popup
       L.marker([-3.3167, 114.5833]).addTo(map)
         .bindPopup('Kabupaten Panajam, Kalimantan Selatan')
         .openPopup();
