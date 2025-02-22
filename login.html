@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Login - JatimMamba-GIS</title>
+  <!-- Tailwind CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <!-- Firebase App -->
+  <script src="https://www.gstatic.com/firebasejs/9.1.0/firebase-app.js"></script>
+  <!-- Firebase Auth -->
+  <script src="https://www.gstatic.com/firebasejs/9.1.0/firebase-auth.js"></script>
+  <style>
+    /* Gradient background */
+    @keyframes gradient {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+    .animated-bg {
+      background: linear-gradient(45deg, #cb1111, #fc2525, #ff0000, #ff0000);
+      background-size: 400% 400%;
+      animation: gradient 15s ease infinite;
+    }
+    /* Logo kiri */
+    .bg-logo-left {
+      position: absolute;
+      top: 50%;
+      left: 20px;
+      transform: translateY(-50%);
+      /* opacity: 0.2; */
+      animation: float 6s ease-in-out infinite;
+    }
+    /* Logo kanan */
+    .bg-logo-right {
+      position: absolute;
+      top: 50%;
+      right: 20px;
+      transform: translateY(-50%);
+      /* opacity: 0.2; */
+      animation: float 6s ease-in-out infinite;
+    }
+    @keyframes float {
+      0% { transform: translateY(-50%) translateX(0); }
+      50% { transform: translateY(-60%) translateX(0); }
+      100% { transform: translateY(-50%) translateX(0); }
+    }
+    /* Lingkaran hiasan */
+    .decorative-circle {
+      position: absolute;
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      background: rgba(0, 123, 255, 0.1);
+      top: -40px;
+      right: -40px;
+      z-index: -1;
+    }
+  </style>
+  <script>
+    // Firebase config di isi nanti aja don ngko tak edit -stevanus
+    const firebaseConfig = {
+      apiKey: "YOUR_API_KEY",
+      authDomain: "YOUR_AUTH_DOMAIN",
+      projectId: "YOUR_PROJECT_ID",
+      storageBucket: "YOUR_STORAGE_BUCKET",
+      messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
+      appId: "YOUR_APP_ID"
+    };
+    const app = firebase.initializeApp(firebaseConfig);
+    const auth = firebase.auth();
+    function signInWithGoogle() {
+      const provider = new firebase.auth.GoogleAuthProvider();
+      auth.signInWithPopup(provider)
+        .then((result) => {
+          console.log("User signed in:", result.user);
+        })
+        .catch((error) => {
+          console.error("Error:", error);
+        });
+    }
+  </script>
+</head>
+<body class="animated-bg relative flex items-center justify-center min-h-screen overflow-hidden">
+  <!-- Logo kiri -->
+  <img src="img/jtm.png" alt="Logo Kiri" class="bg-logo-left w-20 h-20 object-contain">
+  <!-- Logo kanan -->
+  <img src="img/mapid-rev.png" alt="Logo Kanan" class="bg-logo-right w-20 h-20 object-contain">
+  
+  <!-- Box login -->
+  <div class="relative bg-white rounded-xl shadow-2xl p-6 max-w-md w-full transform hover:scale-105 transition duration-300 z-10 overflow-hidden">
+    <!-- Hiasan lingkaran -->
+    <div class="decorative-circle"></div>
+    
+    <h1 class="text-3xl font-bold text-center mb-2 text-gray-800">
+      Selamat datang di JatimMamba-GIS
+    </h1>
+    <p class="text-center text-gray-600 mb-6">
+      Platform WebGIS interaktif untuk menemukan dan menganalisis data spasial dengan cepat.
+    </p>
+    <!-- Divider -->
+    <div class="flex items-center mb-6">
+      <hr class="flex-grow border-gray-300">
+      <span class="mx-2 text-gray-400 text-sm">atau</span>
+      <hr class="flex-grow border-gray-300">
+    </div>
+    <button onclick="signInWithGoogle()" class="flex items-center justify-center bg-red-500 hover:bg-red-600 text-white font-semibold py-3 px-6 rounded-lg transition duration-300 w-full">
+      <i class="fab fa-google mr-3"></i> Masuk dengan Google
+    </button>
+    <div class="mt-4 text-center">
+      <p class="text-gray-500 text-sm">Atau masuk menggunakan email Anda</p>
+      <a href="#" class="text-blue-500 hover:underline text-sm">Lupa password?</a>
+    </div>
+  </div>
+  
+</body>
+</html>
