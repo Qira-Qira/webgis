@@ -20,6 +20,23 @@
     body {
       font-family: 'Poppins', sans-serif;
     }
+    /* Secara default, sembunyikanee elemen logo dan login */
+.logo,
+.login {
+  display: none;
+}
+
+/* Saat navbar sticky, tampilkan logo dan login */
+.sticky-nav .logo,
+.sticky-nav .login {
+  display: block;
+}
+
+/* Buat layout navbar sticky agar elemen tersebar secara merata */
+.sticky-nav {
+  justify-content: space-between !important;
+}
+
     /* Animasi dasar untuk fade-in */
     .fade-in {
       opacity: 0;
@@ -131,6 +148,10 @@
     .group:hover .flip-card-inner {
       transform: rotateY(180deg);
     }
+
+    footer {
+      background-color: #1d2749;
+    }
   </style>
 </head>
 <body class="bg-[#0b1734] text-white">
@@ -156,14 +177,26 @@
         Eksplor Sekarang
       </button>
     </div>
-    <nav id="mainNav" class="absolute bottom-8 flex space-x-6 bg-yellow-400 text-black py-2 px-6 rounded-full shadow-lg fade-in mx-auto flex-1 justify-center">
-      <div class="flex space-x-6">
-        <a href="#" class="inline-block w-20 hover:w-40 transition-all duration-300 rounded text-center">Home</a>
-        <a href="#fitur" class="inline-block w-20 hover:w-40 transition-all duration-300 rounded text-center">Fitur</a>
-        <a href="#peta" class="inline-block w-20 hover:w-40 transition-all duration-300 rounded text-center">Peta</a>
-        <a href="#tentang" class="inline-block w-20 hover:w-40 transition-all duration-300 rounded text-center">Tentang</a>
-        <a href="#email" class="inline-block w-20 hover:w-40 transition-all duration-300 rounded text-center">E-mail</a>
+    <nav id="mainNav" class="absolute bottom-8 flex items-center bg-yellow-400 text-black py-2 px-6 rounded-full shadow-lg fade-in mx-auto flex-1 justify-center">
+      <!-- Logo: hidden -->
+      <div class="logo hidden">
+        <a href="#"><img src="img/jtm.png" alt="Logo" class="w-10 h-10"></a>
       </div>
+      <!-- nav apdet -->
+      <div class="nav-links flex space-x-6">
+        <a href="#" class="inline-block hover:w-40 transition-all duration-300 rounded text-center">Home</a>
+        <a href="#fitur" class="inline-block hover:w-40 transition-all duration-300 rounded text-center">Fitur</a>
+        <a href="#peta" class="inline-block hover:w-40 transition-all duration-300 rounded text-center">Peta</a>
+        <a href="#tentang" class="inline-block hover:w-40 transition-all duration-300 rounded text-center">Tentang</a>
+        <a href="#email" class="inline-block hover:w-40 transition-all duration-300 rounded text-center">E-mail</a>
+      </div>
+      <!-- Tombol Login: hidden apdet -->
+      <div class="login hidden">
+        <button href= class="bg-yellow-400 text-black font-semibold px-4 py-2 rounded-md hover:bg-yellow-300 transition">
+          Login
+        </button>
+      </div>
+    </nav>    
   </header>
 
   <!-- SECTION: FITUR DAN KEUNGGULAN -->
@@ -373,9 +406,9 @@
         </div>
       </section>
       
-      <!-- SECTION: PROFIL KAMi -->
+ <!-- SECTION: PROFIL KAMI -->
 <section id="profil-kami" class="relative py-20 overflow-hidden bg-gradient-to-b from-gray-900 to-[#0b1734]">
-  <!-- Wave Background di atas section (bukan position absolute) -->
+  <!-- Wave Background di atas section -->
   <div class="absolute top-0 left-0 w-full pointer-events-none">
     <svg class="block w-full h-20 text-[#0b1734]" viewBox="0 0 1440 320" preserveAspectRatio="none">
       <path fill="currentColor" fill-opacity="1"
@@ -383,7 +416,7 @@
       </path>
     </svg>
   </div>
-  
+
   <!-- Container -->
   <div class="container mx-auto px-6">
     <!-- Title & Deskripsi -->
@@ -396,11 +429,9 @@
     </div>
 
     <!-- Grid Profil -->
-    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 fade-in justify-items-center">
-      
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 fade-in justify-items-center">
       <!-- Card 1: Project Leader -->
-      <div class="group relative bg-gradient-to-br from-[#1e293b] to-[#25334a] p-6 rounded-2xl shadow-xl 
-                  transform hover:-translate-y-1 hover:scale-[1.03] hover:shadow-2xl transition duration-300">
+      <div class="group relative bg-gradient-to-br from-[#1e293b] to-[#25334a] p-6 rounded-2xl shadow-xl transition transform duration-300 hover:scale-105">
         <div class="flex flex-col items-center">
           <div class="w-28 h-28 rounded-full overflow-hidden mb-4 border-4 border-yellow-400">
             <img src="img/yusril.png" alt="Project Leader" class="object-cover w-full h-full">
@@ -409,8 +440,7 @@
           <p class="text-gray-300 text-base">@Stevyuss / Yusril Ast</p>
         </div>
         <!-- Overlay Hover -->
-        <div class="absolute inset-0 bg-black bg-opacity-60 flex items-center justify-center 
-                    opacity-0 group-hover:opacity-100 transition duration-300 p-4">
+        <div class="absolute inset-0 bg-black bg-opacity-60 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-300 p-4 rounded-2xl">
           <p class="text-yellow-300 text-center text-sm">
             Pengarah utama dalam strategi dan pengembangan tim.
           </p>
@@ -418,8 +448,7 @@
       </div>
 
       <!-- Card 2: FullStack Dev -->
-      <div class="group relative bg-gradient-to-br from-[#1e293b] to-[#25334a] p-6 rounded-2xl shadow-xl 
-                  transform hover:-translate-y-1 hover:scale-[1.03] hover:shadow-2xl transition duration-300">
+      <div class="group relative bg-gradient-to-br from-[#1e293b] to-[#25334a] p-6 rounded-2xl shadow-xl transition transform duration-300 hover:scale-105">
         <div class="flex flex-col items-center">
           <div class="w-28 h-28 rounded-full overflow-hidden mb-4 border-4 border-yellow-400">
             <img src="img/bimo.png" alt="FullStack Dev" class="object-cover w-full h-full">
@@ -427,8 +456,7 @@
           <h3 class="text-xl font-bold text-yellow-400 mb-1">FullStack Dev</h3>
           <p class="text-gray-300 text-base">@Ncho_owen / Haryo Bimo</p>
         </div>
-        <div class="absolute inset-0 bg-black bg-opacity-60 flex items-center justify-center 
-                    opacity-0 group-hover:opacity-100 transition duration-300 p-4">
+        <div class="absolute inset-0 bg-black bg-opacity-60 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-300 p-4 rounded-2xl">
           <p class="text-yellow-300 text-center text-sm">
             Ahli dalam pengembangan front-end dan back-end.
           </p>
@@ -436,8 +464,7 @@
       </div>
 
       <!-- Card 3: Data Analyst -->
-      <div class="group relative bg-gradient-to-br from-[#1e293b] to-[#25334a] p-6 rounded-2xl shadow-xl 
-                  transform hover:-translate-y-1 hover:scale-[1.03] hover:shadow-2xl transition duration-300">
+      <div class="group relative bg-gradient-to-br from-[#1e293b] to-[#25334a] p-6 rounded-2xl shadow-xl transition transform duration-300 hover:scale-105">
         <div class="flex flex-col items-center">
           <div class="w-28 h-28 rounded-full overflow-hidden mb-4 border-4 border-yellow-400">
             <img src="img/mas kei.png" alt="Data Analyst" class="object-cover w-full h-full">
@@ -445,8 +472,7 @@
           <h3 class="text-xl font-bold text-yellow-400 mb-1">Data Analyst</h3>
           <p class="text-gray-300 text-base">@Baphomet99999 / Raihan</p>
         </div>
-        <div class="absolute inset-0 bg-black bg-opacity-60 flex items-center justify-center 
-                    opacity-0 group-hover:opacity-100 transition duration-300 p-4">
+        <div class="absolute inset-0 bg-black bg-opacity-60 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-300 p-4 rounded-2xl">
           <p class="text-yellow-300 text-center text-sm">
             Menggali insight dari data untuk pengambilan keputusan tepat.
           </p>
@@ -454,8 +480,7 @@
       </div>
 
       <!-- Card 4: Cyber Security -->
-      <div class="group relative bg-gradient-to-br from-[#1e293b] to-[#25334a] p-6 rounded-2xl shadow-xl 
-                  transform hover:-translate-y-1 hover:scale-[1.03] hover:shadow-2xl transition duration-300">
+      <div class="group relative bg-gradient-to-br from-[#1e293b] to-[#25334a] p-6 rounded-2xl shadow-xl transition transform duration-300 hover:scale-105">
         <div class="flex flex-col items-center">
           <div class="w-28 h-28 rounded-full overflow-hidden mb-4 border-4 border-yellow-400">
             <img src="img/DAVID.png" alt="Cyber Security" class="object-cover w-full h-full">
@@ -463,8 +488,7 @@
           <h3 class="text-xl font-bold text-yellow-400 mb-1">Cyber Security</h3>
           <p class="text-gray-300 text-base">@dapideuy404 / Haidar Dzaky F</p>
         </div>
-        <div class="absolute inset-0 bg-black bg-opacity-60 flex items-center justify-center 
-                    opacity-0 group-hover:opacity-100 transition duration-300 p-4">
+        <div class="absolute inset-0 bg-black bg-opacity-60 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-300 p-4 rounded-2xl">
           <p class="text-yellow-300 text-center text-sm">
             Melindungi sistem dari ancaman siber.
           </p>
@@ -472,8 +496,7 @@
       </div>
 
       <!-- Card 5: IT Support -->
-      <div class="group relative bg-gradient-to-br from-[#1e293b] to-[#25334a] p-6 rounded-2xl shadow-xl 
-                  transform hover:-translate-y-1 hover:scale-[1.03] hover:shadow-2xl transition duration-300">
+      <div class="group relative bg-gradient-to-br from-[#1e293b] to-[#25334a] p-6 rounded-2xl shadow-xl transition transform duration-300 hover:scale-105">
         <div class="flex flex-col items-center">
           <div class="w-28 h-28 rounded-full overflow-hidden mb-4 border-4 border-yellow-400">
             <img src="img/doni.jpg" alt="IT Support" class="object-cover w-full h-full">
@@ -481,14 +504,12 @@
           <h3 class="text-xl font-bold text-yellow-400 mb-1">IT Support</h3>
           <p class="text-gray-300 text-base">@Qiraayyy / Ariq</p>
         </div>
-        <div class="absolute inset-0 bg-black bg-opacity-60 flex items-center justify-center 
-                    opacity-0 group-hover:opacity-100 transition duration-300 p-4">
+        <div class="absolute inset-0 bg-black bg-opacity-60 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-300 p-4 rounded-2xl">
           <p class="text-yellow-300 text-center text-sm">
             Menyediakan dukungan teknis dan pemeliharaan sistem.
           </p>
         </div>
       </div>
-      
     </div>
   </div>
 
@@ -502,10 +523,8 @@
   </div>
 </section>
 
-
-
   <!-- FOOTER: -->
-<footer class="bg-black text-white py-12">
+<footer class=" text-white py-12">
   <div class="container mx-auto px-6">
     <div class="flex flex-col md:flex-row justify-between items-center md:items-start">
       <div class="mb-8 md:mb-0 text-center md:text-left">
