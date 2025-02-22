@@ -47,7 +47,7 @@
       top: 0;
       transform: translateX(-50%);
       width: 100%;
-      max-width: 1200px;
+      max-width: 600px;
       background-color: rgba(250, 204, 21, 0.95);
       color: black;
       padding: 1rem 2rem;
@@ -61,6 +61,7 @@
 
     header,nav,a:hover{
       background-color: #0b1734;
+      border-radius: 10px;
       color: #fbbf24;
     }
     /* Animasi ikon: efek pulse */
@@ -141,7 +142,7 @@
       <div class="absolute inset-0 bg-black opacity-50"></div>
     </div>
     <div class="absolute top-8 right-8">
-      <img src="img/mapid-logo.png" alt="MAPID Logo" class="w-28 object-contain" />
+      <img src="img/mapid-rev.png" alt="MAPID Logo" class="w-28 object-contain" />
     </div>
     <div class="relative z-10 flex flex-col items-center text-center px-4 fade-in">
       <img src="img/jtm.png" alt="JatimMamba Logo" class="w-40 mb-4" />
@@ -155,13 +156,14 @@
         Eksplor Sekarang
       </button>
     </div>
-    <nav id="mainNav" class="absolute bottom-8 flex space-x-6 bg-yellow-400 text-black py-2 px-6 rounded-full shadow-lg fade-in mx-auto flex justify-center">
-      <a href="#" class="w-20 hover:w-40 rounded text-center">Home</a>
-      <a href="#fitur" class="w-20 hover:w-40 rounded text-center">Fitur</a>
-      <a href="#peta" class="w-20 hover:w-40 rounded text-center">Peta</a>
-      <a href="#tentang" class="w-20 hover:w-40 rounded text-center">Tentang</a>
-      <a href="#email" class="w-20 hover:w-40 rounded text-center">E-mail</a>
-    </nav>
+    <nav id="mainNav" class="absolute bottom-8 flex space-x-6 bg-yellow-400 text-black py-2 px-6 rounded-full shadow-lg fade-in mx-auto flex-1 justify-center">
+      <div class="flex space-x-6">
+        <a href="#" class="inline-block w-20 hover:w-40 transition-all duration-300 rounded text-center">Home</a>
+        <a href="#fitur" class="inline-block w-20 hover:w-40 transition-all duration-300 rounded text-center">Fitur</a>
+        <a href="#peta" class="inline-block w-20 hover:w-40 transition-all duration-300 rounded text-center">Peta</a>
+        <a href="#tentang" class="inline-block w-20 hover:w-40 transition-all duration-300 rounded text-center">Tentang</a>
+        <a href="#email" class="inline-block w-20 hover:w-40 transition-all duration-300 rounded text-center">E-mail</a>
+      </div>
   </header>
 
   <!-- SECTION: FITUR DAN KEUNGGULAN -->
@@ -383,7 +385,7 @@
   </div>
   
   <!-- Container -->
-  <div class="container mx-auto px-6 relative">
+  <div class="container mx-auto px-6">
     <!-- Title & Deskripsi -->
     <div class="text-center mb-12 fade-in">
       <h2 class="text-4xl md:text-5xl font-extrabold text-yellow-400 mb-4">Profil Kami</h2>
@@ -394,7 +396,7 @@
     </div>
 
     <!-- Grid Profil -->
-    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 fade-in">
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 fade-in justify-items-center">
       
       <!-- Card 1: Project Leader -->
       <div class="group relative bg-gradient-to-br from-[#1e293b] to-[#25334a] p-6 rounded-2xl shadow-xl 
@@ -486,13 +488,7 @@
           </p>
         </div>
       </div>
-
-      <!-- Card 6: Logo / Tambahan -->
-      <div class="group relative bg-gradient-to-br from-[#1e293b] to-[#25334a] p-6 rounded-2xl shadow-xl 
-                  flex items-center justify-center transform hover:-translate-y-1 hover:scale-[1.03] hover:shadow-2xl 
-                  transition duration-300">
-        <img src="https://via.placeholder.com/200x100?text=JatimMamba" alt="JatimMamba Logo" class="w-32 object-contain">
-      </div>
+      
     </div>
   </div>
 
@@ -507,12 +503,13 @@
 </section>
 
 
+
   <!-- FOOTER: -->
-<footer class="bg-blue-900 text-white py-12">
+<footer class="bg-black text-white py-12">
   <div class="container mx-auto px-6">
     <div class="flex flex-col md:flex-row justify-between items-center md:items-start">
       <div class="mb-8 md:mb-0 text-center md:text-left">
-        <img src="https://via.placeholder.com/150x50?text=JatimMamba" alt="JatimMamba Logo" class="w-40 mx-auto md:mx-0">
+        <img src="img/jtm2.png" alt="JatimMamba Logo" class="w-40 mx-auto md:mx-0">
         <p class="mt-4 text-gray-300 max-w-sm">
           JatimMamba adalah platform WEBGIS profesional yang menggabungkan data spasial dengan teknologi terkini untuk mendukung pengambilan keputusan yang cerdas.
         </p>
@@ -549,7 +546,7 @@
         </div>
       </div>
     </div>
-    <div class="border-t border-blue-800 mt-8 pt-4">
+    <div class="border-t border-yellow-400 mt-8 pt-4">
       <p class="text-center text-gray-400 text-sm">&copy; 2025 JatimMamba. All rights reserved.</p>
     </div>
   </div>
