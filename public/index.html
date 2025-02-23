@@ -58,6 +58,10 @@
         opacity: 1;
       }
     }
+
+    header,.mapid,img{
+      z-index: 9999;
+    }
     /* Navbar sticky yang telah diperbarui */
     .sticky-nav {
       position: fixed !important;
@@ -160,14 +164,14 @@
   <!-- HERO SECTION (tetap sama) -->
   <header class="relative w-full h-screen flex flex-col items-center justify-center">
     <div class="absolute inset-0">
-      <img src="img/background.png" alt="Futuristic Garden" class="w-full h-full object-cover" />
+      <img src="assets/img/background.png" alt="Futuristic Garden" class="w-full h-full object-cover" />
       <div class="absolute inset-0 bg-black opacity-50"></div>
     </div>
-    <div class="absolute top-8 right-8">
-      <img src="img/mapid-rev.png" alt="MAPID Logo" class="w-28 object-contain" />
+    <div class="absolute top-8 right-8 mapid">
+      <img src="assets/img/mapid-rev.png" alt="MAPID Logo" class="w-30 object-contain" />
     </div>
     <div class="relative z-10 flex flex-col items-center text-center px-4 fade-in">
-      <img src="img/jtm.png" alt="JatimMamba Logo" class="w-40 mb-4" />
+      <img src="assets/img/jtm.png" alt="JatimMamba Logo" class="w-40 mb-4" />
       <h1 class="text-3xl md:text-5xl font-bold mb-2">
         <span class="text-white">Jatim</span><span class="text-yellow-300">Mamba</span>
       </h1>
