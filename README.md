@@ -95,7 +95,7 @@ Proyek ini dibuat bareng-bareng oleh satu tim keren yang terdiri dari 5 orang:
 - **Dzaky** – [GitHub](https://github.com/D3XT3R404)
 
 Follow IG kita (kamu pasti udah tau kan):   
-*@stevyuss_, @qirayy @ncho_owen @baphomet99999 @dapideuy404*
+*@stevyuss_, @qiraayyy @ncho_owen @baphomet99999 @dapideuy404*
 
 ---
 
