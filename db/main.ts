@@ -2,15 +2,15 @@ const express = require("express");
 const { MongoClient } = require("mongodb");
 const fs = require("fs");
 
-const app = express();
+
+const app = express;
 const port = 3000;
 
-// Koneksi ke MongoDB
-const uri = "mongodb://localhost:27017/"; // Ganti jika pakai MongoDB Atlas
-const client = new MongoClient(uri);
+const url = "mongodb://localhost/27017";
+const client = new MongoClient(url);
 
 app.get("/", async (req, res) => {
-    try {
+try {
         await client.connect();
         const db = client.db("survey");
         const collection = db.collection("notebooks");
@@ -25,7 +25,7 @@ app.get("/", async (req, res) => {
         await collection.insertMany(jsonData);
 
         // Menyimpan data ke MongoDB (jika belum ada)
-        const existingData = await collection.countDocuments()
+        const existingData = await collection.countDocuments();
         if (existingData === 0) {
             await collection.insertMany(jsonData);
         }
@@ -63,8 +63,4 @@ app.get("/", async (req, res) => {
     } finally {
         await client.close();
     }
-});
-
-app.listen(port, () => {
-    console.log(`Server berjalan di http://localhost:${port}`);
 });

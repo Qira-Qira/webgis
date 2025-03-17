@@ -7,9 +7,9 @@ export default function GISPage() {
   const [surveyData, setSurveyData] = useState([]);
 
   useEffect(() => {
-    // Fetch data from the backend API
+    
     const fetchSurveyData = async () => {
-      const response = await fetch("YOUR_API_URL");  // Replace with your actual API endpoint
+      const response = await fetch("YOUR_API_URL");  
       const data = await response.json();
       setSurveyData(data);
     };
