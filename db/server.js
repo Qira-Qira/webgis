@@ -9,6 +9,10 @@ const port = 3000;
 const uri = "mongodb://localhost:27017/";
 const client = new MongoClient(uri);
 
+const userRoutes = require('./routes/userRoutes');
+
+app.use('/api/users', userRoutes);
+
 app.get("/", async (req, res) => {
     try {
         await client.connect();
@@ -42,6 +46,10 @@ app.get("/", async (req, res) => {
     } finally {
         await client.close();
     }
+});
+
+app.get('/api', async(req,res) => {
+    res.json({message: 'API berjalan dengan baik'});
 });
 
 app.listen(port, () => {
